@@ -1,3 +1,11 @@
-# Брендбуки / айдентика и системы
+# brandbooks
 
-Папка под материалы направления `brandbooks`. Основная страница сейчас работает как single page app через `portfolio/index.html`.
+Папка направления `brandbooks`.
+
+Материалы для этого направления складывать в `materials/`.
+
+Рекомендуемые пути:
+- `materials/images/` — основные изображения
+- `materials/previews/` — превью для карточек
+- `materials/source/` — исходники, макеты, выгрузки
+- `materials/documents/` — PDF, документы, презентации

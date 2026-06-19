@@ -1,6 +1,17 @@
-<!-- Вставить в Tilda T123 -->
-<iframe
-  src="https://dobroeee.github.io/besay/portfolio/?v=1"
-  style="width:100%; height:3000px; border:0; display:block;"
-  loading="lazy">
-</iframe>
+<div id="besay-portfolio-frame"></div>
+
+<script>
+(function () {
+  var portfolioUrl = "https://dobroeee.github.io/besay/portfolio/";
+
+  var iframe = document.createElement("iframe");
+  iframe.src = portfolioUrl + "?v=" + new Date().getTime();
+  iframe.style.width = "100%";
+  iframe.style.height = "3000px";
+  iframe.style.border = "0";
+  iframe.style.display = "block";
+  iframe.loading = "lazy";
+
+  document.getElementById("besay-portfolio-frame").appendChild(iframe);
+})();
+</script>

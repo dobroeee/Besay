@@ -4,97 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Портфолио — Ахмерова Рамиля</title>
-  <meta name="description" content="Портфолио: сайты, брендбуки, кастомные блоки, рассылки и социальные сети.">
+  <meta name="description" content="Портфолио веб-дизайнера, UX/UI-дизайнера и frontend-разработчика.">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-<!-- CLEAN PORTFOLIO DASHBOARD / Tilda T123 ready -->
-<div class="rdbx-scope" data-theme="dark">
-  <aside class="rdbx-sidebar" aria-label="Навигация портфолио">
-    <div class="rdbx-brand">
-      <div class="rdbx-brand-mark">R</div>
-      <div class="rdbx-brand-text">
-        <div class="rdbx-brand-title">Portfolio</div>
-        <div class="rdbx-brand-subtitle">Design dashboard</div>
+<!-- CLEAN PORTFOLIO PAGE / Tilda T123 ready -->
+<div class="rdbx-scope" data-theme="dark" data-mobile-view="about">
+  <header class="rdbx-page-header" aria-label="Меню портфолио">
+    <div class="rdbx-top-menu" aria-label="Контакты и быстрые ссылки">
+      <div class="rdbx-menu-left">
+        <div class="rdbx-menu-theme" aria-label="Переключатель темы">
+          <span>Тема</span>
+          <button class="rdbx-theme-switch" type="button" role="switch" aria-checked="false" aria-label="Переключить светлую тему">
+            <span></span>
+          </button>
+        </div>
+
+        <button class="rdbx-contacts-toggle" type="button" aria-expanded="false" aria-label="Открыть контакты"><span aria-hidden="true"></span><b>Контакты</b></button>
+
+        <div class="rdbx-menu-socials" aria-label="Социальные сети и контакты">
+          <a class="rdbx-menu-social rdbx-menu-social-phone" href="tel:+79672702110" aria-label="Позвонить"><span aria-hidden="true"></span></a>
+          <a class="rdbx-menu-social rdbx-menu-social-whatsapp" href="https://wa.me/79672702110" target="_blank" rel="noopener" aria-label="WhatsApp"><span aria-hidden="true"></span></a>
+          <a class="rdbx-menu-social rdbx-menu-social-telegram" href="https://t.me/dobro_eee" target="_blank" rel="noopener" aria-label="Telegram"><span aria-hidden="true"></span></a>
+          <a class="rdbx-menu-social rdbx-menu-social-max" href="https://max.ru/" target="_blank" rel="noopener" aria-label="MAX"><strong aria-hidden="true">max</strong></a>
+          <a class="rdbx-menu-social rdbx-menu-social-behance" href="https://www.behance.net/Dobro_eee" target="_blank" rel="noopener" aria-label="Behance"><span aria-hidden="true"></span></a>
+          <a class="rdbx-menu-social rdbx-menu-social-hh" href="https://hh.ru/resume/72587d9fff1089df6c0039ed1f4456324e6a6a" target="_blank" rel="noopener" aria-label="hh.ru"><strong aria-hidden="true">hh</strong></a>
+        </div>
+      </div>
+
+      <div class="rdbx-menu-right">
+        <a class="rdbx-request-button rdbx-tilda-safe-button" href="#popup:myformbesay" role="button">Оставить заявку</a>
       </div>
     </div>
 
-    <nav class="rdbx-nav">
-      <button class="rdbx-tab is-active" type="button" data-tab="about">
-        <span class="rdbx-tab-number">01</span>
-        <span class="rdbx-tab-copy">
-          <span class="rdbx-tab-title">Обо мне</span>
-          <span class="rdbx-tab-subtitle">Профиль и контакты</span>
-        </span>
-      </button>
-
-      <button class="rdbx-tab" type="button" data-tab="sites">
-        <span class="rdbx-tab-number">02</span>
-        <span class="rdbx-tab-copy">
-          <span class="rdbx-tab-title">Сайты</span>
-          <span class="rdbx-tab-subtitle">Лендинги и веб</span>
-        </span>
-      </button>
-
-      <button class="rdbx-tab" type="button" data-tab="brandbooks">
-        <span class="rdbx-tab-number">03</span>
-        <span class="rdbx-tab-copy">
-          <span class="rdbx-tab-title">Брендбуки</span>
-          <span class="rdbx-tab-subtitle">Айдентика и системы</span>
-        </span>
-      </button>
-
-      <button class="rdbx-tab" type="button" data-tab="custom">
-        <span class="rdbx-tab-number">04</span>
-        <span class="rdbx-tab-copy">
-          <span class="rdbx-tab-title">Кастом</span>
-          <span class="rdbx-tab-subtitle">Блоки и логика</span>
-        </span>
-      </button>
-
-      <button class="rdbx-tab" type="button" data-tab="mailings">
-        <span class="rdbx-tab-number">05</span>
-        <span class="rdbx-tab-copy">
-          <span class="rdbx-tab-title">Рассылки</span>
-          <span class="rdbx-tab-subtitle">Email и digital</span>
-        </span>
-      </button>
-
-      <button class="rdbx-tab" type="button" data-tab="social">
-        <span class="rdbx-tab-number">06</span>
-        <span class="rdbx-tab-copy">
-          <span class="rdbx-tab-title">Социальные сети</span>
-          <span class="rdbx-tab-subtitle">VK</span>
-        </span>
-      </button>
+    <nav class="rdbx-view-nav" aria-label="Разделы страницы">
+      <button class="rdbx-mobile-main-tab is-active" type="button" data-mobile-view="about" aria-selected="true">Главная страница</button>
+      <button class="rdbx-mobile-main-tab" type="button" data-mobile-view="portfolio" aria-selected="false">Страница с портфолио</button>
     </nav>
+  </header>
 
-    <div class="rdbx-sidebar-bottom">
-      <div class="rdbx-datetime" aria-live="polite">—</div>
-
-      <div class="rdbx-theme-line">
-        <span>Светлая тема</span>
-        <button class="rdbx-theme-switch" type="button" role="switch" aria-checked="false" aria-label="Переключить светлую тему">
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </aside>
-
-  <div class="rdbx-top-menu" aria-label="Быстрые ссылки">
-    <span class="rdbx-tech-status">Ведутся технические работы</span>
-    <a href="https://t.me/dobro_eee" target="_blank" rel="noopener">Telegram</a>
-    <a href="https://max.ru/" target="_blank" rel="noopener">MAX</a>
-    <a href="https://www.behance.net/Dobro_eee" target="_blank" rel="noopener">Behance</a>
-    <a href="https://hh.ru/resume/72587d9fff1089df6c0039ed1f4456324e6a6a" target="_blank" rel="noopener">hh.ru</a>
-
-    <button class="rdbx-theme-switch rdbx-theme-switch-mobile" type="button" role="switch" aria-checked="false" aria-label="Переключить светлую тему">
-      <span></span>
-    </button>
-  </div>
-
-  <main class="rdbx-main">
-    <section class="rdbx-panel is-active" data-panel="about">
+  <main class="rdbx-main rdbx-page-main">
+    <section class="rdbx-about-section" aria-label="Обо мне">
+      
       <div class="rdbx-about-grid">
         <div class="rdbx-photo-card">
           <img src="https://optim.tildacdn.com/tild3239-3339-4365-a531-386432633661/-/format/webp/photo_2024-03-04_12-.jpg.webp" alt="Ахмерова Рамиля">
@@ -103,28 +54,95 @@
         <div class="rdbx-intro-card">
           <div class="rdbx-kicker">Обо мне</div>
           <h1>Ахмерова Рамиля</h1>
-          <div class="rdbx-role">UI/UX Designer</div>
+          <div class="rdbx-role">Fullstack Designer</div>
           <p>
-            Проектирую интерфейсы, лендинги и визуальные системы для digital-проектов.
+            Люблю космос, красивые детали и всё, что выглядит немного необычно. Мне нравится замечать мелочи, собирать вокруг себя визуальный порядок и находить вдохновение в цветах, формах, музыке, фильмах и случайных моментах.
+          </p>
+
+          <p>
+            Я человек, которому важно чувствовать смысл в том, что он делает. Люблю учиться, пробовать новое, придумывать идеи и доводить их до формы. Иногда могу долго залипать на красивый свет, странную картинку или мысль о том, насколько огромная Вселенная.
           </p>
 
 
         </div>
+
+        <article class="rdbx-card rdbx-stack-card">
+          <div class="rdbx-stack-groups">
+            <div class="rdbx-stack-group">
+              <div class="rdbx-stack-subtitle">Навыки дизайна</div>
+              <div class="rdbx-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>UI/UX</span>
+                <span>User Flow</span>
+                <span>Design System</span>
+                <span>Адаптивный дизайн</span>
+                <span>Полиграфия</span>
+                <span>Лендинги и сайты</span>
+                <span>Дашборды</span>
+                <span>Интерфейсы</span>
+                <span>Мобильные приложения</span>
+              </div>
+            </div>
+
+            <div class="rdbx-stack-group">
+              <div class="rdbx-stack-subtitle">Приложения и инструменты</div>
+              <div class="rdbx-stack">
+                <span>Figma</span>
+                <span>Adobe</span>
+                <span>Tilda</span>
+                <span>Framer</span>
+                <span>Yandex Metrica</span>
+                <span>Webflow</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
       </div>
 
-
       <section class="rdbx-skill-stats" aria-label="Уровень навыков">
-        <article class="rdbx-skill-card rdbx-skill-card-figma">
+        <article class="rdbx-skill-card">
           <div class="rdbx-skill-head">
             <h3>Figma</h3>
           </div>
 
-          <div class="rdbx-skill-ring" style="--ring-offset:27.646;">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <circle class="rdbx-skill-ring-track" cx="60" cy="60" r="44"></circle>
-              <circle class="rdbx-skill-ring-fill" cx="60" cy="60" r="44"></circle>
-            </svg>
-            <strong>90%</strong>
+          <div class="rdbx-skill-list rdbx-skill-list-ai">
+            <div class="rdbx-skill-meter" style="--skill:100%;">
+              <div class="rdbx-skill-meter-top"><span>Auto Layout</span><strong>100%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
+
+            <div class="rdbx-skill-meter" style="--skill:99%;">
+              <div class="rdbx-skill-meter-top"><span>Компоненты</span><strong>99%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
+
+            <div class="rdbx-skill-meter" style="--skill:71%;">
+              <div class="rdbx-skill-meter-top"><span>Variants</span><strong>71%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
+
+            <div class="rdbx-skill-meter" style="--skill:69%;">
+              <div class="rdbx-skill-meter-top"><span>Variables</span><strong>69%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
+
+            <div class="rdbx-skill-meter" style="--skill:50%;">
+              <div class="rdbx-skill-meter-top"><span>Dev Mode</span><strong>50%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
+
+            <div class="rdbx-skill-meter" style="--skill:90%;">
+              <div class="rdbx-skill-meter-top"><span>User Flow</span><strong>90%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
+
+            <div class="rdbx-skill-meter" style="--skill:99%;">
+              <div class="rdbx-skill-meter-top"><span>Design System</span><strong>99%</strong></div>
+              <div class="rdbx-skill-meter-line"><i></i></div>
+            </div>
           </div>
         </article>
 
@@ -385,133 +403,129 @@
         </div>
       </section>
 
-<div class="rdbx-about-bottom">
-        <article class="rdbx-card">
-          <div class="rdbx-card-title">КОНТАКТЫ</div>
 
-          <div class="rdbx-contact-list rdbx-contact-list-compact">
-            <div class="rdbx-contact-row">
-              <a href="tel:+79672702110">
-                <span>Телефон</span>
-                <strong>+7 (967) 270-21-10</strong>
-              </a>
-
-              <a href="https://t.me/dobro_eee" target="_blank" rel="noopener">
-                <span>Telegram</span>
-                <strong>@dobro_eee</strong>
-              </a>
-            </div>
-
-            <a href="mailto:dobro.eee@gmail.com" class="rdbx-contact-email">
-              <span>Почта</span>
-              <strong>dobro.eee@gmail.com</strong>
-            </a>
-
-            <div class="rdbx-mobile-contact-links">
-              <a href="https://t.me/dobro_eee" target="_blank" rel="noopener">
-                <span>Telegram</span>
-                <strong>@dobro_eee</strong>
-              </a>
-
-              <a href="https://max.ru/" target="_blank" rel="noopener">
-                <span>MAX</span>
-                <strong>Написать</strong>
-              </a>
-
-              <a href="https://www.behance.net/Dobro_eee" target="_blank" rel="noopener">
-                <span>Behance</span>
-                <strong>Портфолио</strong>
-              </a>
-
-              <a href="https://hh.ru/resume/72587d9fff1089df6c0039ed1f4456324e6a6a" target="_blank" rel="noopener">
-                <span>hh.ru</span>
-                <strong>Резюме</strong>
-              </a>
-            </div>
-
-          </div>
-        </article>
-
-        <article class="rdbx-card">
-          <div class="rdbx-card-title">СТЕК</div>
-
-          <div class="rdbx-stack">
-            <span>Figma</span>
-            <span>FigJam</span>
-            <span>Adobe Photoshop</span>
-            <span>Adobe Illustrator</span>
-            <span>Tilda</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>TypeScript</span>
-            <span>JSON</span>
-            <span>SQL</span>
-            <span>Make</span>
-            <span>Google Analytics</span>
-            <span>Yandex Metrica</span>
-            <span>Typeform</span>
-            <span>Google Forms</span>
-            <span>Notion</span>
-            <span>Trello</span>
-          </div>
-        </article>
-      </div>
+    
     </section>
 
-    <section class="rdbx-panel" data-panel="sites">
+    
+<section class="rdbx-page-filter" aria-label="Фильтр портфолио">
+  <div class="rdbx-desktop-portfolio-title">Портфолио</div>
+  <div class="rdbx-page-nav" role="tablist" aria-label="Разделы портфолио">
+    <button class="rdbx-tab is-active" type="button" data-tab="sites">
+      <span class="rdbx-tab-number">01</span>
+      <span class="rdbx-tab-copy">
+        <span class="rdbx-tab-title">Сайты</span>
+        <span class="rdbx-tab-subtitle">Лендинги и веб</span>
+      </span>
+    </button>
+
+    <button class="rdbx-tab" type="button" data-tab="brandbooks">
+      <span class="rdbx-tab-number">02</span>
+      <span class="rdbx-tab-copy">
+        <span class="rdbx-tab-title">Брендбуки</span>
+        <span class="rdbx-tab-subtitle">Айдентика и системы</span>
+      </span>
+    </button>
+
+    <button class="rdbx-tab" type="button" data-tab="custom">
+      <span class="rdbx-tab-number">03</span>
+      <span class="rdbx-tab-copy">
+        <span class="rdbx-tab-title">Кастом</span>
+        <span class="rdbx-tab-subtitle">Блоки и логика</span>
+      </span>
+    </button>
+
+    <button class="rdbx-tab" type="button" data-tab="mailings">
+      <span class="rdbx-tab-number">04</span>
+      <span class="rdbx-tab-copy">
+        <span class="rdbx-tab-title">Рассылки</span>
+        <span class="rdbx-tab-subtitle">Email и digital</span>
+      </span>
+    </button>
+
+    <button class="rdbx-tab" type="button" data-tab="social">
+      <span class="rdbx-tab-number">05</span>
+      <span class="rdbx-tab-copy">
+        <span class="rdbx-tab-title">Социальные сети</span>
+        <span class="rdbx-tab-subtitle">VK</span>
+      </span>
+    </button>
+  </div>
+
+  <div class="rdbx-page-filter-extra is-active" data-filter-owner="sites">
+    <div class="rdbx-filter-group" data-filter-group="type">
+      <div class="rdbx-filter-title">Тип проекта</div>
+      <div class="rdbx-filter-list">
+        <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
+        <button class="rdbx-filter" type="button" data-filter="multi">Многостраничный сайт</button>
+        <button class="rdbx-filter" type="button" data-filter="landing">Лендинг</button>
+        <button class="rdbx-filter" type="button" data-filter="dashboard">Дашборд</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rdbx-page-filter-extra" data-filter-owner="brandbooks" aria-hidden="true">
+    <div class="rdbx-filter-group" data-filter-group="type">
+      <div class="rdbx-filter-title">Тип проекта</div>
+      <div class="rdbx-filter-list">
+        <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
+        <button class="rdbx-filter" type="button" data-filter="brandbook">Брендбук</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rdbx-page-filter-extra" data-filter-owner="custom" aria-hidden="true">
+    <div class="rdbx-filter-group" data-filter-group="type">
+      <div class="rdbx-filter-title">Тип проекта</div>
+      <div class="rdbx-filter-list">
+        <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
+        <button class="rdbx-filter" type="button" data-filter="calculator">Калькуляторы</button>
+        <button class="rdbx-filter" type="button" data-filter="game">Игровые интерфейсы</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rdbx-page-filter-extra" data-filter-owner="mailings" aria-hidden="true">
+    <div class="rdbx-filter-group" data-filter-group="type">
+      <div class="rdbx-filter-title">Тип проекта</div>
+      <div class="rdbx-filter-list">
+        <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
+        <button class="rdbx-filter" type="button" data-filter="email">Email</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rdbx-page-filter-extra" data-filter-owner="social" aria-hidden="true">
+    <div class="rdbx-filter-group" data-filter-group="type">
+      <div class="rdbx-filter-title">Тип проекта</div>
+      <div class="rdbx-filter-list">
+        <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
+        <button class="rdbx-filter" type="button" data-filter="vk">VK</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rdbx-global-area-filter">
+    <div class="rdbx-filter-group rdbx-area-filter-group" data-filter-group="area">
+    <div class="rdbx-filter-title">Направление</div>
+    <div class="rdbx-filter-list">
+      <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
+      <button class="rdbx-filter" type="button" data-filter="education">Образование</button>
+      <button class="rdbx-filter" type="button" data-filter="event">Событие</button>
+      <button class="rdbx-filter" type="button" data-filter="sport">Спорт</button>
+      <button class="rdbx-filter" type="button" data-filter="it">IT</button>
+      <button class="rdbx-filter" type="button" data-filter="igaming">iGaming</button>
+      <button class="rdbx-filter" type="button" data-filter="music">Музыка</button>
+      <button class="rdbx-filter" type="button" data-filter="beauty">Косметология</button>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+    <div class="rdbx-page-panels">
+      <section class="rdbx-panel is-active" data-panel="sites">
       <div class="rdbx-sites">
-        <div class="rdbx-sites-control">
-          <div class="rdbx-filter-group" data-filter-group="type">
-            <div class="rdbx-filter-title">Тип проекта</div>
-            <div class="rdbx-filter-list">
-              <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
-              <button class="rdbx-filter" type="button" data-filter="multi">Многостраничный сайт</button>
-              <button class="rdbx-filter" type="button" data-filter="landing">Лендинг</button>
-              <button class="rdbx-filter" type="button" data-filter="dashboard">Дашборд</button>
-</div>
-          </div>
-
-          <div class="rdbx-filter-group" data-filter-group="area">
-            <div class="rdbx-filter-title">Направление</div>
-            <div class="rdbx-filter-list">
-              <button class="rdbx-filter is-active" type="button" data-filter="all">Все</button>
-              <button class="rdbx-filter" type="button" data-filter="education">Образование</button>
-              <button class="rdbx-filter" type="button" data-filter="event">Событие</button>
-              <button class="rdbx-filter" type="button" data-filter="sport">Спорт</button>
-              <button class="rdbx-filter" type="button" data-filter="it">IT</button>
-              <button class="rdbx-filter" type="button" data-filter="igaming">iGaming</button>
-              <button class="rdbx-filter" type="button" data-filter="music">Музыка</button>
-              <button class="rdbx-filter" type="button" data-filter="beauty">Косметология</button>
-</div>
-          </div>
-        </div>
-
-          <div class="rdbx-mobile-filter-selects">
-            <label>
-              <span>Тип проекта</span>
-              <select class="rdbx-mobile-filter" data-filter-group="type">
-                <option value="all">Все</option>
-                <option value="multi">Многостраничный сайт</option>
-                <option value="landing">Лендинг</option>
-                <option value="dashboard">Дашборд</option>
-              </select>
-            </label>
-
-            <label>
-              <span>Направление</span>
-              <select class="rdbx-mobile-filter" data-filter-group="area">
-                <option value="all">Все</option>
-                <option value="education">Образование</option>
-                <option value="event">Событие</option>
-                <option value="sport">Спорт</option>
-                <option value="it">IT</option>
-                <option value="igaming">iGaming</option>
-                <option value="beauty">Косметология</option>
-              </select>
-            </label>
-          </div>
-
         <div class="rdbx-sites-grid">
           <a class="rdbx-site-card" href="https://patriotgym.ru" target="_blank" rel="noopener" data-type="landing" data-area="sport">
             <div class="rdbx-site-info">
@@ -636,27 +650,13 @@
             </div>
             <div class="rdbx-site-image"><img src="https://optim.tildacdn.com/tild3466-3631-4135-a266-353832313537/-/format/webp/_.jpg.webp" alt=""></div>
           </a>
-
-          <a class="rdbx-site-card" href="https://besay.ru/bbxschool" target="_blank" rel="noopener" data-type="landing" data-area="music,education">
-            <div class="rdbx-site-info">
-              <div class="rdbx-site-meta">
-                <span>Лендинг</span>
-                <span>Музыка</span>
-                <span>Образование</span>
-              </div>
-              <h3>Школа битбокса для детей и подростков</h3>
-              <div class="rdbx-site-action">Открыть сайт</div>
-            </div>
-            <div class="rdbx-site-image"><img src="https://optim.tildacdn.com/tild6266-3664-4630-a663-363261323365/-/format/webp/photo.jpg.webp" alt=""></div>
-          </a>
         </div>
       </div>
     </section>
-
-    <section class="rdbx-panel" data-panel="brandbooks">
+      <section class="rdbx-panel" data-panel="brandbooks">
       <div class="rdbx-brandbooks">
         <div class="rdbx-brandbooks-grid">
-          <a class="rdbx-brandbook-card" href="https://besay.ru/bb-mgok" target="_blank" rel="noopener">
+          <a class="rdbx-brandbook-card" data-type="brandbook" data-area="education" href="https://besay.ru/bb-mgok" target="_blank" rel="noopener">
             <div class="rdbx-brandbook-info">
               <div class="rdbx-brandbook-meta">
                 <span>Среднее специальное образование</span>
@@ -669,7 +669,7 @@
             </div>
           </a>
 
-          <a class="rdbx-brandbook-card" href="https://besay.ru/bb-openit" target="_blank" rel="noopener">
+          <a class="rdbx-brandbook-card" data-type="brandbook" data-area="it" href="https://besay.ru/bb-openit" target="_blank" rel="noopener">
             <div class="rdbx-brandbook-info">
               <div class="rdbx-brandbook-meta">
                 <span>IT</span>
@@ -682,7 +682,7 @@
             </div>
           </a>
 
-          <a class="rdbx-brandbook-card" href="https://besay.ru/bb-berufsberatung" target="_blank" rel="noopener">
+          <a class="rdbx-brandbook-card" data-type="brandbook" data-area="education" href="https://besay.ru/bb-berufsberatung" target="_blank" rel="noopener">
             <div class="rdbx-brandbook-info">
               <div class="rdbx-brandbook-meta">
                 <span>Дополнительное образование</span>
@@ -695,7 +695,7 @@
             </div>
           </a>
 
-          <a class="rdbx-brandbook-card" href="https://besay.ru/bb-bbxschool" target="_blank" rel="noopener">
+          <a class="rdbx-brandbook-card" data-type="brandbook" data-area="music,education" href="https://besay.ru/bb-bbxschool" target="_blank" rel="noopener">
             <div class="rdbx-brandbook-info">
               <div class="rdbx-brandbook-meta">
                 <span>Музыка</span>
@@ -708,7 +708,7 @@
             </div>
           </a>
 
-          <a class="rdbx-brandbook-card" href="https://besay.ru/bb-case-championship" target="_blank" rel="noopener">
+          <a class="rdbx-brandbook-card" data-type="brandbook" data-area="event" href="https://besay.ru/bb-case-championship" target="_blank" rel="noopener">
             <div class="rdbx-brandbook-info">
               <div class="rdbx-brandbook-meta">
                 <span>Хакатон</span>
@@ -723,11 +723,10 @@
         </div>
       </div>
     </section>
-
-    <section class="rdbx-panel" data-panel="custom">
+      <section class="rdbx-panel" data-panel="custom">
       <div class="rdbx-custom">
         <div class="rdbx-custom-grid">
-          <a class="rdbx-custom-card" href="https://besay.ru/calculator-taxi" target="_blank" rel="noopener">
+          <a class="rdbx-custom-card" data-type="calculator" data-area="it" href="https://besay.ru/calculator-taxi" target="_blank" rel="noopener">
             <div class="rdbx-custom-info">
               <div class="rdbx-custom-meta">
                 <span>Калькулятор</span>
@@ -740,7 +739,7 @@
             </div>
           </a>
 
-          <a class="rdbx-custom-card" href="https://besay.ru/calculator-repair" target="_blank" rel="noopener">
+          <a class="rdbx-custom-card" data-type="calculator" data-area="it" href="https://besay.ru/calculator-repair" target="_blank" rel="noopener">
             <div class="rdbx-custom-info">
               <div class="rdbx-custom-meta">
                 <span>Калькулятор</span>
@@ -753,7 +752,7 @@
             </div>
           </a>
 
-          <a class="rdbx-custom-card" href="https://besay.ru/tournament-grid-cs2" target="_blank" rel="noopener">
+          <a class="rdbx-custom-card" data-type="game" data-area="igaming" href="https://besay.ru/tournament-grid-cs2" target="_blank" rel="noopener">
             <div class="rdbx-custom-info">
               <div class="rdbx-custom-meta">
                 <span>Турнирная сетка</span>
@@ -769,11 +768,10 @@
         </div>
       </div>
     </section>
-
-    <section class="rdbx-panel" data-panel="mailings">
+      <section class="rdbx-panel" data-panel="mailings">
       <div class="rdbx-mailings">
         <div class="rdbx-mailings-grid">
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/estetik-shop.jpg?v=2" data-popup-title="Компания: Эстетик шоп">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="beauty" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/estetik-shop.jpg?v=2" data-popup-title="Компания: Эстетик шоп">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Косметология</span>
@@ -786,7 +784,7 @@
             </div>
           </button>
 
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/ardemi.jpg" data-popup-title="Ardemi">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="beauty" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/ardemi.jpg" data-popup-title="Ardemi">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Косметология</span>
@@ -799,7 +797,7 @@
             </div>
           </button>
 
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/desnol.jpg?v=1" data-popup-title="1С:ТОИР Densol">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="education,it" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/desnol.jpg?v=1" data-popup-title="1С:ТОИР Densol">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Образование</span>
@@ -813,7 +811,7 @@
             </div>
           </button>
 
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/spesialist.jpg?v=1" data-popup-title="АНО Судебно-экспертного центра «Специалист»">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="education" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/spesialist.jpg?v=1" data-popup-title="АНО Судебно-экспертного центра «Специалист»">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Образование</span>
@@ -826,7 +824,7 @@
             </div>
           </button>
 
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/Levina-mgok.jpg?v=1" data-popup-title="Мгок: Приглашение">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="education" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/Levina-mgok.jpg?v=1" data-popup-title="Мгок: Приглашение">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Образование</span>
@@ -839,7 +837,7 @@
             </div>
           </button>
 
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/curs-mgok.jpg?v=1" data-popup-title="МГОК: курс – &quot;Код будущего&quot;">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="education,it" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/curs-mgok.jpg?v=1" data-popup-title="МГОК: курс – &quot;Код будущего&quot;">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Образование</span>
@@ -852,7 +850,7 @@
             </div>
           </button>
 
-          <button class="rdbx-mailing-card" type="button" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/bbxschool-email.jpg?v=2" data-popup-title="Школа битбокса Rusffx">
+          <button class="rdbx-mailing-card" type="button" data-type="email" data-area="music,education" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/bbxschool-email.jpg?v=2" data-popup-title="Школа битбокса Rusffx">
             <div class="rdbx-mailing-info">
               <div class="rdbx-mailing-meta">
                 <span>Музыка</span>
@@ -868,14 +866,12 @@
         </div>
       </div>
     </section>
-
-
-    <section class="rdbx-panel" data-panel="social">
+      <section class="rdbx-panel" data-panel="social">
       <div class="rdbx-socials">
         <div class="rdbx-socials-grid">
 
           
-          <button class="rdbx-social-card" type="button" data-social-type="vk" data-social-followers="8100000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/smeyaka/banner.png?v=1" data-popup-title="Приколы | Смеяка" data-social-link="https://vk.com/smeyaka">
+          <button class="rdbx-social-card" type="button" data-type="vk" data-area="all" data-social-type="vk" data-social-followers="8100000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/smeyaka/banner.png?v=1" data-popup-title="Приколы | Смеяка" data-social-link="https://vk.com/smeyaka">
             <div class="rdbx-social-info">
               <div class="rdbx-social-meta">
                 <span>8,1M</span>
@@ -889,7 +885,7 @@
             </div>
           </button>
 
-          <button class="rdbx-social-card" type="button" data-social-type="vk" data-social-followers="3300000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/grani-umora/banner.png?v=1" data-popup-title="Грани юмора" data-social-link="https://vk.com/tophumor">
+          <button class="rdbx-social-card" type="button" data-type="vk" data-area="all" data-social-type="vk" data-social-followers="3300000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/grani-umora/banner.png?v=1" data-popup-title="Грани юмора" data-social-link="https://vk.com/tophumor">
             <div class="rdbx-social-info">
               <div class="rdbx-social-meta">
                 <span>3,3 млн</span>
@@ -903,7 +899,7 @@
             </div>
           </button>
 
-          <button class="rdbx-social-card" type="button" data-social-type="vk" data-social-followers="3200000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/temnaya-materia/banner.png?v=1" data-popup-title="Темная материя" data-social-link="https://vk.com/da_side">
+          <button class="rdbx-social-card" type="button" data-type="vk" data-area="all" data-social-type="vk" data-social-followers="3200000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/temnaya-materia/banner.png?v=1" data-popup-title="Темная материя" data-social-link="https://vk.com/da_side">
             <div class="rdbx-social-info">
               <div class="rdbx-social-meta">
                 <span>3,2M</span>
@@ -917,7 +913,7 @@
             </div>
           </button>
 
-          <button class="rdbx-social-card" type="button" data-social-type="vk" data-social-followers="2800000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/mdk/banner.png?v=1" data-popup-title="МДК" data-social-link="https://vk.com/mudachyo">
+          <button class="rdbx-social-card" type="button" data-type="vk" data-area="all" data-social-type="vk" data-social-followers="2800000" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/mdk/banner.png?v=1" data-popup-title="МДК" data-social-link="https://vk.com/mudachyo">
             <div class="rdbx-social-info">
               <div class="rdbx-social-meta">
                 <span>2,8M</span>
@@ -931,7 +927,7 @@
             </div>
           </button>
 
-          <button class="rdbx-social-card" type="button" data-social-type="vk" data-social-followers="61" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/odri/banner.png?v=1" data-popup-title="Одри" data-social-link="https://vk.com/odri_beauty_space">
+          <button class="rdbx-social-card" type="button" data-type="vk" data-area="beauty" data-social-type="vk" data-social-followers="61" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/odri/banner.png?v=1" data-popup-title="Одри" data-social-link="https://vk.com/odri_beauty_space">
             <div class="rdbx-social-info">
               <div class="rdbx-social-meta">
                 <span>61 подписчик</span>
@@ -945,7 +941,7 @@
             </div>
           </button>
 
-          <button class="rdbx-social-card" type="button" data-social-type="vk" data-social-followers="0" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/taxopark-my/banner.png?v=1" data-popup-title="Маркетинг таксопарков">
+          <button class="rdbx-social-card" type="button" data-type="vk" data-area="it" data-social-type="vk" data-social-followers="0" data-popup-image="https://raw.githubusercontent.com/dobroeee/Besay/main/social/taxopark-my/banner.png?v=1" data-popup-title="Маркетинг таксопарков">
             <div class="rdbx-social-info">
               <div class="rdbx-social-meta">
                 <span>ВК</span>
@@ -962,7 +958,7 @@
         </div>
       </div>
     </section>
-
+    </div>
   </main>
 
   <div class="rdbx-popup" aria-hidden="true">
@@ -1004,6 +1000,7 @@
     </div>
   </div>
 </div>
-  <script src="./assets/js/script.js"></script>
+
+<script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -1,3 +1,11 @@
-# Рассылки / email и digital
+# mailings
 
-Папка под материалы направления `mailings`. Основная страница сейчас работает как single page app через `portfolio/index.html`.
+Папка направления `mailings`.
+
+Материалы для этого направления складывать в `materials/`.
+
+Рекомендуемые пути:
+- `materials/images/` — основные изображения
+- `materials/previews/` — превью для карточек
+- `materials/source/` — исходники, макеты, выгрузки
+- `materials/documents/` — PDF, документы, презентации

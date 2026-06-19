@@ -1,7 +1,24 @@
 (function () {
-  function initDashboard() {
+  function initPortfolio() {
     const root = document.querySelector(".rdbx-scope");
     if (!root) return;
+
+    const contactsToggle = root.querySelector(".rdbx-contacts-toggle");
+
+    if (contactsToggle) {
+      contactsToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const isOpen = root.classList.toggle("is-contacts-open");
+        contactsToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!root.contains(event.target)) return;
+        if (event.target.closest(".rdbx-menu-socials") || event.target.closest(".rdbx-contacts-toggle")) return;
+        root.classList.remove("is-contacts-open");
+        contactsToggle.setAttribute("aria-expanded", "false");
+      });
+    }
 
     const tabs = root.querySelectorAll(".rdbx-tab");
     const panels = root.querySelectorAll(".rdbx-panel");
@@ -9,7 +26,48 @@
     const themeSwitch = themeSwitches[0];
     const datetime = root.querySelector(".rdbx-datetime");
 
+
+    const mobileMainTabs = root.querySelectorAll(".rdbx-mobile-main-tab");
+
+    function setMobileView(viewName) {
+      const nextView = viewName === "portfolio" ? "portfolio" : "about";
+      root.setAttribute("data-mobile-view", nextView);
+
+      mobileMainTabs.forEach(function (button) {
+        const isActive = button.getAttribute("data-mobile-view") === nextView;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+    }
+
+    mobileMainTabs.forEach(function (button) {
+      button.addEventListener("click", function () {
+        setMobileView(button.getAttribute("data-mobile-view"));
+      });
+    });
+
+    setMobileView(root.getAttribute("data-mobile-view") || "about");
+
+    const panelFilterBlocks = root.querySelectorAll(".rdbx-page-filter-extra");
+
+    function updatePanelFilters(tabName) {
+      panelFilterBlocks.forEach(function (block) {
+        const owner = block.getAttribute("data-filter-owner");
+        const isActive = owner === tabName;
+        block.classList.toggle("is-active", isActive);
+        block.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+    }
+
     function setTab(tabName) {
+      updatePanelFilters(tabName);
+
+      const activeTypeGroup = root.querySelector('.rdbx-page-filter-extra.is-active .rdbx-filter-group[data-filter-group="type"]');
+      if (activeTypeGroup) {
+        const activeTypeButton = activeTypeGroup.querySelector(".rdbx-filter.is-active") || activeTypeGroup.querySelector(".rdbx-filter");
+        activeSiteFilters.type = activeTypeButton ? activeTypeButton.getAttribute("data-filter") : "all";
+      }
+
       tabs.forEach(function (tab) {
         const isActive = tab.getAttribute("data-tab") === tabName;
         tab.classList.toggle("is-active", isActive);
@@ -20,6 +78,8 @@
         const isActive = panel.getAttribute("data-panel") === tabName;
         panel.classList.toggle("is-active", isActive);
       });
+
+      applySiteFilters();
     }
 
     tabs.forEach(function (tab) {
@@ -28,6 +88,11 @@
         setTab(tab.getAttribute("data-tab"));
       });
     });
+
+    const activeTab = root.querySelector(".rdbx-tab.is-active");
+    if (activeTab) {
+      updatePanelFilters(activeTab.getAttribute("data-tab"));
+    }
 
 
 
@@ -65,14 +130,20 @@
     setInterval(updateDateTime, 1000);
 
     const siteFilters = root.querySelectorAll(".rdbx-filter");
-    const siteCards = root.querySelectorAll(".rdbx-site-card");
+    const portfolioCards = root.querySelectorAll(".rdbx-site-card, .rdbx-brandbook-card, .rdbx-custom-card, .rdbx-mailing-card, .rdbx-social-card");
     const activeSiteFilters = {
       type: "all",
       area: "all"
     };
 
     function applySiteFilters() {
-      siteCards.forEach(function (card) {
+      const activePanel = root.querySelector(".rdbx-panel.is-active");
+      portfolioCards.forEach(function (card) {
+        const isInActivePanel = !activePanel || activePanel.contains(card);
+        if (!isInActivePanel) {
+          card.classList.remove("is-hidden");
+          return;
+        }
         const cardTypes = (card.getAttribute("data-type") || "").split(",");
         const cardAreas = (card.getAttribute("data-area") || "").split(",");
         const typeMatch = activeSiteFilters.type === "all" || cardTypes.indexOf(activeSiteFilters.type) !== -1;
@@ -427,8 +498,32 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initDashboard);
+    document.addEventListener("DOMContentLoaded", initPortfolio);
   } else {
-    initDashboard();
+    initPortfolio();
+  }
+})();
+</script>
+
+
+<script>
+(function () {
+  function initNormalPortfolioPage() {
+    const root = document.querySelector(".rdbx-scope");
+    if (!root) return;
+
+    const activeTab = root.querySelector('.rdbx-page-nav .rdbx-tab.is-active') || root.querySelector('.rdbx-page-nav .rdbx-tab');
+    if (!activeTab) return;
+
+    const tabName = activeTab.getAttribute('data-tab');
+    root.querySelectorAll('.rdbx-page-panels .rdbx-panel').forEach(function (panel) {
+      panel.classList.toggle('is-active', panel.getAttribute('data-panel') === tabName);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNormalPortfolioPage);
+  } else {
+    initNormalPortfolioPage();
   }
 })();

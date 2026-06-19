@@ -1,57 +1,33 @@
-# Portfolio for GitHub Pages
+# Besay Portfolio
 
-Готовая структура для загрузки в репозиторий `besay`.
+Готовая структура для загрузки в репозиторий `besay` и публикации через GitHub Pages.
 
-## Структура
+## Что загружать в GitHub
 
-```text
-portfolio/
-  index.html
-  tilda-iframe-code.html
-  assets/
-    css/
-      style.css
-    js/
-      script.js
-  sections/
-    about/
-    sites/
-    brandbooks/
-    custom/
-    mailings/
-    social/
-```
+Загружать папку `portfolio` в корень репозитория.
 
-## Как подключить в Tilda
+## Страница
 
-После загрузки папки `portfolio` в репозиторий и включения GitHub Pages вставить в Tilda T123 код из файла `portfolio/tilda-iframe-code.html`.
-
-Если GitHub Pages отдаёт репозиторий с большой буквой в URL, замени `besay` на `Besay` в iframe.
-
-Для обновления кэша меняй `?v=1` на `?v=2`, `?v=3` и так далее.
-
-
-## Структура материалов
-
-В каждом направлении есть своя папка `materials`:
+После включения GitHub Pages страница будет открываться примерно по адресу:
 
 ```text
-portfolio/sections/about/materials/
-portfolio/sections/sites/materials/
-portfolio/sections/brandbooks/materials/
-portfolio/sections/custom/materials/
-portfolio/sections/mailings/materials/
-portfolio/sections/social/materials/
+https://dobroeee.github.io/besay/portfolio/
 ```
 
-Внутри каждого направления:
+Если репозиторий отображается с большой буквы, использовать:
 
 ```text
-materials/
-  images/      основные изображения
-  previews/    превью карточек
-  source/      исходники и дополнительные файлы
-  documents/   PDF, презентации, документы
+https://dobroeee.github.io/Besay/portfolio/
 ```
 
-Папка `portfolio/assets/media/` оставлена для общих файлов: иконки, фоны, повторяющиеся изображения.
+## Код для Tilda
+
+Код iframe лежит здесь:
+
+```text
+portfolio/tilda-iframe-code.html
+```
+
+## Обновление
+
+После изменения файлов в GitHub нажать `Commit changes`. GitHub Pages сам обновит опубликованную страницу.
