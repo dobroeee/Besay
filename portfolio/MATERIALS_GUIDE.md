@@ -1,37 +1,11 @@
-# Где хранить материалы
+# Материалы
 
-В каждом направлении есть папка `materials`:
+Сайт визуально и по структуре не меняется: все работает из `portfolio/index.html`.
 
-```text
-sections/
-  about/materials/
-  sites/materials/
-  brandbooks/materials/
-  custom/materials/
-  mailings/materials/
-  social/materials/
-```
+Папки ниже нужны только для хранения фото, превью, исходников и документов по направлениям.
 
-Внутри каждого направления:
+Пример пути к превью сайта:
+`./sections/sites/materials/previews/example.webp`
 
-```text
-materials/
-  images/      основные изображения
-  previews/    превью для карточек
-  source/      исходники, макеты, выгрузки
-  documents/   PDF, документы, презентации
-```
-
-Пример ссылки на картинку из `index.html`:
-
-```html
-<img src="./sections/sites/materials/previews/project-name.webp" alt="">
-```
-
-Для общих файлов, которые относятся ко всему портфолио, использовать:
-
-```text
-assets/media/common/
-assets/media/icons/
-assets/media/backgrounds/
-```
+Пример пути к изображению рассылки:
+`./sections/mailings/materials/images/example.webp`

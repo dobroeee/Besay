@@ -3,6 +3,8 @@
 <script>
 (function () {
   var portfolioUrl = "https://dobroeee.github.io/besay/portfolio/";
+  var holder = document.getElementById("besay-portfolio-frame");
+  if (!holder) return;
 
   var iframe = document.createElement("iframe");
   iframe.src = portfolioUrl + "?v=" + new Date().getTime();
@@ -11,7 +13,11 @@
   iframe.style.border = "0";
   iframe.style.display = "block";
   iframe.loading = "lazy";
+  holder.appendChild(iframe);
 
-  document.getElementById("besay-portfolio-frame").appendChild(iframe);
+  window.addEventListener("message", function (event) {
+    if (!event.data || event.data.type !== "besay-open-popup") return;
+    window.location.hash = event.data.hash || "#popup:myformbesay";
+  });
 })();
 </script>

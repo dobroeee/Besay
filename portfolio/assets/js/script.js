@@ -1,5 +1,5 @@
 (function () {
-  function initPortfolio() {
+  function initDashboard() {
     const root = document.querySelector(".rdbx-scope");
     if (!root) return;
 
@@ -498,9 +498,9 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPortfolio);
+    document.addEventListener("DOMContentLoaded", initDashboard);
   } else {
-    initPortfolio();
+    initDashboard();
   }
 })();
 </script>
@@ -526,4 +526,16 @@
   } else {
     initNormalPortfolioPage();
   }
+})();
+
+/* GitHub iframe → Tilda popup bridge */
+(function () {
+  const requestButtons = document.querySelectorAll('.rdbx-request-button[href="#popup:myformbesay"]');
+  requestButtons.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      if (window.self === window.top) return;
+      event.preventDefault();
+      window.parent.postMessage({ type: 'besay-open-popup', hash: '#popup:myformbesay' }, '*');
+    });
+  });
 })();
