@@ -414,9 +414,18 @@
 
     root.querySelectorAll('.rdbx-request-button[href="#popup:myformbesay"]').forEach(function (button) {
       button.addEventListener("click", function (event) {
-        if (window.self === window.top) return;
+        const popupHash = "#popup:myformbesay";
+
+        if (window.self === window.top) {
+          return;
+        }
+
         event.preventDefault();
-        window.parent.postMessage({ type: "besay-open-popup", hash: "#popup:myformbesay" }, "*");
+        window.parent.postMessage({
+          type: "besay-open-popup",
+          popupId: "myformbesay",
+          hash: popupHash
+        }, "*");
       });
     });
 
