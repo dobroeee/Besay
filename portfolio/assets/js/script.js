@@ -9,6 +9,27 @@
     }
   }
 
+  function sendFrameHeight() {
+    if (window.self === window.top) return;
+
+    const body = document.body;
+    const html = document.documentElement;
+    const height = Math.max(
+      body ? body.scrollHeight : 0,
+      body ? body.offsetHeight : 0,
+      html ? html.clientHeight : 0,
+      html ? html.scrollHeight : 0,
+      html ? html.offsetHeight : 0
+    );
+
+    window.parent.postMessage({ type: "besay-portfolio-height", height: height }, "*");
+  }
+
+  function requestFrameResize() {
+    window.setTimeout(sendFrameHeight, 40);
+    window.setTimeout(sendFrameHeight, 220);
+  }
+
   function initPortfolioPage() {
     const root = document.querySelector(".rdbx-scope");
     if (!root) return;
@@ -38,6 +59,8 @@
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-selected", isActive ? "true" : "false");
       });
+
+      requestFrameResize();
     }
 
     function getActivePanelName() {
@@ -400,6 +423,16 @@
     setTheme(root.getAttribute("data-theme") || "dark");
     setMobileView(root.getAttribute("data-mobile-view") || "about");
     setPortfolioTab(getActivePanelName());
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(requestFrameResize);
+      resizeObserver.observe(document.documentElement);
+      resizeObserver.observe(document.body);
+    }
+
+    window.addEventListener("load", requestFrameResize);
+    window.addEventListener("resize", requestFrameResize);
+    requestFrameResize();
   }
 
   onReady(initPortfolioPage);

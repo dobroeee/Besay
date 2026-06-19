@@ -1550,3 +1550,34 @@ body {
     transition: none !important;
   }
 }
+
+/* Desktop/mobile visibility guard */
+@media (min-width: 981px) {
+  .rdbx-view-nav {
+    display: none !important;
+  }
+
+  .rdbx-scope[data-mobile-view] .rdbx-about-section,
+  .rdbx-scope[data-mobile-view] .rdbx-page-filter {
+    display: grid;
+  }
+
+  .rdbx-scope[data-mobile-view] .rdbx-page-panels {
+    display: block;
+  }
+
+  .rdbx-scope[data-mobile-view] .rdbx-page-panels .rdbx-panel {
+    display: none;
+  }
+
+  .rdbx-scope[data-mobile-view] .rdbx-page-panels .rdbx-panel.is-active {
+    display: block;
+  }
+}
+
+@media (max-width: 980px) {
+  .rdbx-view-nav {
+    display: grid !important;
+  }
+}
+/* End desktop/mobile visibility guard */

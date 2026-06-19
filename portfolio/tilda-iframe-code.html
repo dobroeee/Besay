@@ -3,17 +3,17 @@
 <style>
   #besay-portfolio-frame {
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
     overflow: hidden;
   }
 
   #besay-portfolio-frame iframe {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    height: 3200px;
     border: 0;
     display: block;
-    overflow: auto;
+    overflow: hidden;
   }
 </style>
 
@@ -27,12 +27,22 @@
   iframe.src = portfolioUrl + "?v=" + new Date().getTime();
   iframe.title = "Портфолио Ахмеровой Рамили";
   iframe.loading = "eager";
-  iframe.scrolling = "yes";
+  iframe.scrolling = "no";
   holder.appendChild(iframe);
 
   window.addEventListener("message", function (event) {
-    if (!event.data || event.data.type !== "besay-open-popup") return;
-    window.location.hash = event.data.hash || "#popup:myformbesay";
+    if (!event.data) return;
+
+    if (event.data.type === "besay-portfolio-height" && event.data.height) {
+      var height = Math.max(900, Number(event.data.height) || 0);
+      holder.style.height = height + "px";
+      iframe.style.height = height + "px";
+      return;
+    }
+
+    if (event.data.type === "besay-open-popup") {
+      window.location.hash = event.data.hash || "#popup:myformbesay";
+    }
   });
 })();
 </script>
