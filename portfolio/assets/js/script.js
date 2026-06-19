@@ -1,33 +1,33 @@
 (function () {
-  function initDashboard() {
+  "use strict";
+
+  function onReady(callback) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback, { once: true });
+    } else {
+      callback();
+    }
+  }
+
+  function initPortfolioPage() {
     const root = document.querySelector(".rdbx-scope");
     if (!root) return;
 
-    const contactsToggle = root.querySelector(".rdbx-contacts-toggle");
-
-    if (contactsToggle) {
-      contactsToggle.addEventListener("click", function (event) {
-        event.stopPropagation();
-        const isOpen = root.classList.toggle("is-contacts-open");
-        contactsToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-
-      document.addEventListener("click", function (event) {
-        if (!root.contains(event.target)) return;
-        if (event.target.closest(".rdbx-menu-socials") || event.target.closest(".rdbx-contacts-toggle")) return;
-        root.classList.remove("is-contacts-open");
-        contactsToggle.setAttribute("aria-expanded", "false");
-      });
-    }
-
-    const tabs = root.querySelectorAll(".rdbx-tab");
-    const panels = root.querySelectorAll(".rdbx-panel");
-    const themeSwitches = root.querySelectorAll(".rdbx-theme-switch");
-    const themeSwitch = themeSwitches[0];
-    const datetime = root.querySelector(".rdbx-datetime");
-
-
     const mobileMainTabs = root.querySelectorAll(".rdbx-mobile-main-tab");
+    const portfolioTabs = root.querySelectorAll(".rdbx-page-nav .rdbx-tab");
+    const portfolioPanels = root.querySelectorAll(".rdbx-page-panels .rdbx-panel");
+    const filterBlocks = root.querySelectorAll(".rdbx-page-filter-extra");
+    const allFilters = root.querySelectorAll(".rdbx-filter");
+    const themeSwitches = root.querySelectorAll(".rdbx-theme-switch");
+    const contactsToggle = root.querySelector(".rdbx-contacts-toggle");
+    const portfolioCards = root.querySelectorAll(
+      ".rdbx-site-card, .rdbx-brandbook-card, .rdbx-custom-card, .rdbx-mailing-card, .rdbx-social-card"
+    );
+
+    const activeFilters = {
+      type: "all",
+      area: "all"
+    };
 
     function setMobileView(viewName) {
       const nextView = viewName === "portfolio" ? "portfolio" : "about";
@@ -40,207 +40,182 @@
       });
     }
 
+    function getActivePanelName() {
+      const activeTab = root.querySelector(".rdbx-page-nav .rdbx-tab.is-active");
+      return activeTab ? activeTab.getAttribute("data-tab") : "sites";
+    }
+
+    function updateFilterBlocks(tabName) {
+      filterBlocks.forEach(function (block) {
+        const isActive = block.getAttribute("data-filter-owner") === tabName;
+        block.classList.toggle("is-active", isActive);
+        block.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+
+      const activeTypeGroup = root.querySelector(
+        '.rdbx-page-filter-extra.is-active .rdbx-filter-group[data-filter-group="type"]'
+      );
+      const activeTypeButton = activeTypeGroup
+        ? activeTypeGroup.querySelector(".rdbx-filter.is-active") || activeTypeGroup.querySelector(".rdbx-filter")
+        : null;
+
+      activeFilters.type = activeTypeButton ? activeTypeButton.getAttribute("data-filter") || "all" : "all";
+    }
+
+    function applyFilters() {
+      const activePanel = root.querySelector(".rdbx-page-panels .rdbx-panel.is-active");
+
+      portfolioCards.forEach(function (card) {
+        if (activePanel && !activePanel.contains(card)) {
+          card.classList.remove("is-hidden");
+          return;
+        }
+
+        const cardTypes = (card.getAttribute("data-type") || "").split(",").map(function (item) {
+          return item.trim();
+        });
+        const cardAreas = (card.getAttribute("data-area") || "").split(",").map(function (item) {
+          return item.trim();
+        });
+
+        const typeMatch = activeFilters.type === "all" || cardTypes.indexOf(activeFilters.type) !== -1;
+        const areaMatch = activeFilters.area === "all" || cardAreas.indexOf(activeFilters.area) !== -1;
+
+        card.classList.toggle("is-hidden", !(typeMatch && areaMatch));
+      });
+    }
+
+    function setPortfolioTab(tabName) {
+      const nextTab = tabName || "sites";
+
+      portfolioTabs.forEach(function (tab) {
+        const isActive = tab.getAttribute("data-tab") === nextTab;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      portfolioPanels.forEach(function (panel) {
+        const isActive = panel.getAttribute("data-panel") === nextTab;
+        panel.classList.toggle("is-active", isActive);
+      });
+
+      updateFilterBlocks(nextTab);
+      applyFilters();
+    }
+
+    function setTheme(themeName) {
+      const theme = themeName === "light" ? "light" : "dark";
+      root.setAttribute("data-theme", theme);
+
+      themeSwitches.forEach(function (button) {
+        button.setAttribute("aria-checked", theme === "light" ? "true" : "false");
+      });
+    }
+
     mobileMainTabs.forEach(function (button) {
       button.addEventListener("click", function () {
         setMobileView(button.getAttribute("data-mobile-view"));
       });
     });
 
-    setMobileView(root.getAttribute("data-mobile-view") || "about");
-
-    const panelFilterBlocks = root.querySelectorAll(".rdbx-page-filter-extra");
-
-    function updatePanelFilters(tabName) {
-      panelFilterBlocks.forEach(function (block) {
-        const owner = block.getAttribute("data-filter-owner");
-        const isActive = owner === tabName;
-        block.classList.toggle("is-active", isActive);
-        block.setAttribute("aria-hidden", isActive ? "false" : "true");
-      });
-    }
-
-    function setTab(tabName) {
-      updatePanelFilters(tabName);
-
-      const activeTypeGroup = root.querySelector('.rdbx-page-filter-extra.is-active .rdbx-filter-group[data-filter-group="type"]');
-      if (activeTypeGroup) {
-        const activeTypeButton = activeTypeGroup.querySelector(".rdbx-filter.is-active") || activeTypeGroup.querySelector(".rdbx-filter");
-        activeSiteFilters.type = activeTypeButton ? activeTypeButton.getAttribute("data-filter") : "all";
-      }
-
-      tabs.forEach(function (tab) {
-        const isActive = tab.getAttribute("data-tab") === tabName;
-        tab.classList.toggle("is-active", isActive);
-        tab.setAttribute("aria-selected", isActive ? "true" : "false");
-      });
-
-      panels.forEach(function (panel) {
-        const isActive = panel.getAttribute("data-panel") === tabName;
-        panel.classList.toggle("is-active", isActive);
-      });
-
-      applySiteFilters();
-    }
-
-    tabs.forEach(function (tab) {
+    portfolioTabs.forEach(function (tab) {
       tab.setAttribute("role", "tab");
       tab.addEventListener("click", function () {
-        setTab(tab.getAttribute("data-tab"));
+        setPortfolioTab(tab.getAttribute("data-tab"));
       });
     });
 
-    const activeTab = root.querySelector(".rdbx-tab.is-active");
-    if (activeTab) {
-      updatePanelFilters(activeTab.getAttribute("data-tab"));
-    }
-
-
-
-    function setTheme(theme) {
-      const isLight = theme === "light";
-      root.setAttribute("data-theme", isLight ? "light" : "dark");
-      themeSwitches.forEach(function (switcher) {
-        switcher.setAttribute("aria-checked", isLight ? "true" : "false");
-      });
-    }
-
-    themeSwitches.forEach(function (switcher) {
-      switcher.addEventListener("click", function () {
-        const current = root.getAttribute("data-theme") || "dark";
-        setTheme(current === "dark" ? "light" : "dark");
-      });
-    });
-
-    function updateDateTime() {
-      if (!datetime) return;
-      const now = new Date();
-      const date = now.toLocaleDateString("ru-RU", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-      });
-      const time = now.toLocaleTimeString("ru-RU", {
-        hour: "2-digit",
-        minute: "2-digit"
-      });
-      datetime.textContent = date + " · " + time;
-    }
-
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-
-    const siteFilters = root.querySelectorAll(".rdbx-filter");
-    const portfolioCards = root.querySelectorAll(".rdbx-site-card, .rdbx-brandbook-card, .rdbx-custom-card, .rdbx-mailing-card, .rdbx-social-card");
-    const activeSiteFilters = {
-      type: "all",
-      area: "all"
-    };
-
-    function applySiteFilters() {
-      const activePanel = root.querySelector(".rdbx-panel.is-active");
-      portfolioCards.forEach(function (card) {
-        const isInActivePanel = !activePanel || activePanel.contains(card);
-        if (!isInActivePanel) {
-          card.classList.remove("is-hidden");
-          return;
-        }
-        const cardTypes = (card.getAttribute("data-type") || "").split(",");
-        const cardAreas = (card.getAttribute("data-area") || "").split(",");
-        const typeMatch = activeSiteFilters.type === "all" || cardTypes.indexOf(activeSiteFilters.type) !== -1;
-        const areaMatch = activeSiteFilters.area === "all" || cardAreas.indexOf(activeSiteFilters.area) !== -1;
-        card.classList.toggle("is-hidden", !(typeMatch && areaMatch));
-      });
-    }
-
-    siteFilters.forEach(function (filter) {
+    allFilters.forEach(function (filter) {
       filter.addEventListener("click", function () {
         const group = filter.closest(".rdbx-filter-group");
         if (!group) return;
 
         const groupName = group.getAttribute("data-filter-group");
-        const value = filter.getAttribute("data-filter");
+        const value = filter.getAttribute("data-filter") || "all";
+        if (!groupName) return;
 
-        activeSiteFilters[groupName] = value;
+        activeFilters[groupName] = value;
 
         group.querySelectorAll(".rdbx-filter").forEach(function (button) {
           button.classList.toggle("is-active", button === filter);
         });
 
-        root.querySelectorAll(".rdbx-mobile-filter").forEach(function (select) {
-          if (select.getAttribute("data-filter-group") === groupName) {
-            select.value = value;
-          }
-        });
-
-        applySiteFilters();
+        applyFilters();
       });
     });
 
-    root.querySelectorAll(".rdbx-mobile-filter").forEach(function (select) {
-      select.addEventListener("change", function () {
-        const groupName = select.getAttribute("data-filter-group");
-        const value = select.value;
-
-        activeSiteFilters[groupName] = value;
-
-        const group = root.querySelector('.rdbx-filter-group[data-filter-group="' + groupName + '"]');
-        if (group) {
-          group.querySelectorAll(".rdbx-filter").forEach(function (button) {
-            button.classList.toggle("is-active", button.getAttribute("data-filter") === value);
-          });
-        }
-
-        applySiteFilters();
+    themeSwitches.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const currentTheme = root.getAttribute("data-theme") || "dark";
+        setTheme(currentTheme === "dark" ? "light" : "dark");
       });
     });
 
-    function setupDashboardPopupZoom(config) {
-      const popupElement = root.querySelector(config.popup);
-      const popupImage = root.querySelector(config.image);
-      const popupImageWrap = root.querySelector(config.wrap);
-      const popupClose = root.querySelector(config.close);
-      const popupBackdrop = root.querySelector(config.backdrop);
-      const zoomInButton = root.querySelector(config.zoomIn);
-      const zoomOutButton = root.querySelector(config.zoomOut);
-      const zoomResetButton = root.querySelector(config.zoomReset);
+    if (contactsToggle) {
+      contactsToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const isOpen = root.classList.toggle("is-contacts-open");
+        contactsToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!root.contains(event.target)) return;
+        if (event.target.closest(".rdbx-menu-socials") || event.target.closest(".rdbx-contacts-toggle")) return;
+
+        root.classList.remove("is-contacts-open");
+        contactsToggle.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    function setupPopupZoom(options) {
+      const popup = root.querySelector(options.popup);
+      const image = root.querySelector(options.image);
+      const wrap = root.querySelector(options.wrap);
+      const closeButton = root.querySelector(options.close);
+      const backdrop = root.querySelector(options.backdrop);
+      const zoomInButton = root.querySelector(options.zoomIn);
+      const zoomOutButton = root.querySelector(options.zoomOut);
+      const zoomResetButton = root.querySelector(options.zoomReset);
+      const cards = root.querySelectorAll(options.card);
+
+      if (!popup || !image || !wrap) return;
 
       let zoom = 1;
       let panX = 0;
       let panY = 0;
       let dragging = false;
-      let dragStartX = 0;
-      let dragStartY = 0;
+      let startX = 0;
+      let startY = 0;
       let startPanX = 0;
       let startPanY = 0;
 
       const minZoom = 1;
       const maxZoom = 2.4;
-      const zoomStep = 0.2;
+      const step = 0.2;
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
 
       function clampPan() {
-        if (!popupImageWrap || zoom <= 1) {
+        if (zoom <= 1) {
           panX = 0;
           panY = 0;
           return;
         }
 
-        const rect = popupImageWrap.getBoundingClientRect();
+        const rect = wrap.getBoundingClientRect();
         const maxPanX = (rect.width * (zoom - 1)) / 2;
         const maxPanY = (rect.height * (zoom - 1)) / 2;
 
-        panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
-        panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+        panX = clamp(panX, -maxPanX, maxPanX);
+        panY = clamp(panY, -maxPanY, maxPanY);
       }
 
       function updateZoom() {
-        if (!popupImage) return;
-
         clampPan();
-        popupImage.style.transform = "translate3d(" + panX + "px, " + panY + "px, 0) scale(" + zoom + ")";
-
-        if (popupImageWrap) {
-          popupImageWrap.classList.toggle("is-zoomed", zoom > 1);
-        }
+        image.style.transform = "translate3d(" + panX + "px," + panY + "px,0) scale(" + zoom + ")";
+        wrap.classList.toggle("is-zoomed", zoom > 1);
 
         if (zoomResetButton) {
           zoomResetButton.textContent = Math.round(zoom * 100) + "%";
@@ -248,13 +223,11 @@
       }
 
       function setZoom(nextZoom) {
-        zoom = Math.max(minZoom, Math.min(maxZoom, nextZoom));
-
+        zoom = clamp(nextZoom, minZoom, maxZoom);
         if (zoom === 1) {
           panX = 0;
           panY = 0;
         }
-
         updateZoom();
       }
 
@@ -263,58 +236,47 @@
         panX = 0;
         panY = 0;
         dragging = false;
-
-        if (popupImageWrap) {
-          popupImageWrap.classList.remove("is-dragging");
-        }
-
+        wrap.classList.remove("is-dragging");
         updateZoom();
       }
 
-      function openPopup(imageSrc, title, card) {
-        if (!popupElement) return;
+      function openPopup(card) {
+        const src = card.getAttribute("data-popup-image") || "";
+        const title = card.getAttribute("data-popup-title") || "";
 
-        if (popupImage) {
-          popupImage.setAttribute("src", imageSrc || "");
-          popupImage.setAttribute("alt", title || "");
-        }
+        image.setAttribute("src", src);
+        image.setAttribute("alt", title);
 
-        if (typeof config.beforeOpen === "function") {
-          config.beforeOpen(card);
+        if (typeof options.beforeOpen === "function") {
+          options.beforeOpen(card);
         }
 
         resetZoom();
-        popupElement.classList.add("is-open");
-        popupElement.setAttribute("aria-hidden", "false");
+        popup.classList.add("is-open");
+        popup.setAttribute("aria-hidden", "false");
       }
 
       function closePopup() {
-        if (!popupElement) return;
-
-        popupElement.classList.remove("is-open");
-        popupElement.setAttribute("aria-hidden", "true");
+        popup.classList.remove("is-open");
+        popup.setAttribute("aria-hidden", "true");
         resetZoom();
       }
 
-      root.querySelectorAll(config.card).forEach(function (card) {
+      cards.forEach(function (card) {
         card.addEventListener("click", function () {
-          openPopup(
-            card.getAttribute("data-popup-image"),
-            card.getAttribute("data-popup-title"),
-            card
-          );
+          openPopup(card);
         });
       });
 
       if (zoomInButton) {
         zoomInButton.addEventListener("click", function () {
-          setZoom(zoom + zoomStep);
+          setZoom(zoom + step);
         });
       }
 
       if (zoomOutButton) {
         zoomOutButton.addEventListener("click", function () {
-          setZoom(zoom - zoomStep);
+          setZoom(zoom - step);
         });
       }
 
@@ -322,87 +284,74 @@
         zoomResetButton.addEventListener("click", resetZoom);
       }
 
-      if (popupImageWrap) {
-        popupImageWrap.addEventListener("wheel", function (event) {
-          if (!popupElement || !popupElement.classList.contains("is-open")) return;
-          event.preventDefault();
+      if (closeButton) closeButton.addEventListener("click", closePopup);
+      if (backdrop) backdrop.addEventListener("click", closePopup);
 
-          const direction = event.deltaY < 0 ? zoomStep : -zoomStep;
-          setZoom(zoom + direction);
-        }, { passive: false });
+      wrap.addEventListener("wheel", function (event) {
+        if (!popup.classList.contains("is-open")) return;
+        event.preventDefault();
+        setZoom(zoom + (event.deltaY < 0 ? step : -step));
+      }, { passive: false });
 
-        popupImageWrap.addEventListener("pointerdown", function (event) {
-          if (zoom <= 1) return;
+      wrap.addEventListener("pointerdown", function (event) {
+        if (zoom <= 1) return;
 
-          dragging = true;
-          dragStartX = event.clientX;
-          dragStartY = event.clientY;
-          startPanX = panX;
-          startPanY = panY;
+        dragging = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        startPanX = panX;
+        startPanY = panY;
+        wrap.classList.add("is-dragging");
 
-          popupImageWrap.classList.add("is-dragging");
-
-          try {
-            popupImageWrap.setPointerCapture(event.pointerId);
-          } catch (error) {}
-        });
-
-        popupImageWrap.addEventListener("pointermove", function (event) {
-          if (!dragging) return;
-
-          panX = startPanX + (event.clientX - dragStartX);
-          panY = startPanY + (event.clientY - dragStartY);
-          updateZoom();
-        });
-
-        function endDrag(event) {
-          dragging = false;
-          popupImageWrap.classList.remove("is-dragging");
-
-          try {
-            popupImageWrap.releasePointerCapture(event.pointerId);
-          } catch (error) {}
-        }
-
-        popupImageWrap.addEventListener("pointerup", endDrag);
-        popupImageWrap.addEventListener("pointercancel", endDrag);
-
-        popupImageWrap.addEventListener("dblclick", function () {
-          setZoom(zoom > 1 ? 1 : 1.8);
-        });
-      }
-
-      if (popupClose) popupClose.addEventListener("click", closePopup);
-      if (popupBackdrop) popupBackdrop.addEventListener("click", closePopup);
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          closePopup();
-        }
-
-        if (!popupElement || !popupElement.classList.contains("is-open")) return;
-
-        if (event.key === "+" || event.key === "=") {
-          setZoom(zoom + zoomStep);
-        }
-
-        if (event.key === "-") {
-          setZoom(zoom - zoomStep);
-        }
-
-        if (event.key === "0") {
-          resetZoom();
-        }
+        try {
+          wrap.setPointerCapture(event.pointerId);
+        } catch (error) {}
       });
 
-      return {
-        open: openPopup,
-        close: closePopup,
-        reset: resetZoom
-      };
+      wrap.addEventListener("pointermove", function (event) {
+        if (!dragging) return;
+        panX = startPanX + event.clientX - startX;
+        panY = startPanY + event.clientY - startY;
+        updateZoom();
+      });
+
+      function endDrag(event) {
+        dragging = false;
+        wrap.classList.remove("is-dragging");
+
+        try {
+          wrap.releasePointerCapture(event.pointerId);
+        } catch (error) {}
+      }
+
+      wrap.addEventListener("pointerup", endDrag);
+      wrap.addEventListener("pointercancel", endDrag);
+      wrap.addEventListener("dblclick", function () {
+        setZoom(zoom > 1 ? 1 : 1.8);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (!popup.classList.contains("is-open")) return;
+
+        if (event.key === "Escape") closePopup();
+        if (event.key === "+" || event.key === "=") setZoom(zoom + step);
+        if (event.key === "-") setZoom(zoom - step);
+        if (event.key === "0") resetZoom();
+      });
     }
 
-    setupDashboardPopupZoom({
+    const socialGrid = root.querySelector(".rdbx-socials-grid");
+    if (socialGrid) {
+      Array.from(socialGrid.querySelectorAll(".rdbx-social-card"))
+        .sort(function (a, b) {
+          return Number(b.getAttribute("data-social-followers") || 0) - Number(a.getAttribute("data-social-followers") || 0);
+        })
+        .forEach(function (card) {
+          socialGrid.appendChild(card);
+        });
+    }
+
+    setupPopupZoom({
       popup: ".rdbx-popup",
       image: ".rdbx-popup-image",
       wrap: ".rdbx-popup-image-wrap",
@@ -414,60 +363,7 @@
       card: ".rdbx-mailing-card"
     });
 
-    const socialFilters = root.querySelectorAll(".rdbx-social-filter");
-    const socialGrid = root.querySelector(".rdbx-socials-grid");
-
-    function sortSocialCardsByFollowers() {
-      if (!socialGrid) return;
-
-      const cards = Array.from(socialGrid.querySelectorAll(".rdbx-social-card"));
-      cards
-        .sort(function (a, b) {
-          const aFollowers = Number(a.getAttribute("data-social-followers") || 0);
-          const bFollowers = Number(b.getAttribute("data-social-followers") || 0);
-          return bFollowers - aFollowers;
-        })
-        .forEach(function (card) {
-          socialGrid.appendChild(card);
-        });
-    }
-
-    sortSocialCardsByFollowers();
-
-    const socialCards = root.querySelectorAll(".rdbx-social-card");
-    const socialEmpty = root.querySelector(".rdbx-social-empty");
-
-    function applySocialFilter(value) {
-      let visibleCount = 0;
-
-      socialCards.forEach(function (card) {
-        const cardType = card.getAttribute("data-social-type") || "";
-        const isVisible = value === "all" || cardType === value;
-
-        card.classList.toggle("is-hidden", !isVisible);
-        if (isVisible) visibleCount += 1;
-      });
-
-      if (socialEmpty) {
-        socialEmpty.classList.toggle("is-hidden", visibleCount > 0);
-      }
-    }
-
-    socialFilters.forEach(function (filter) {
-      filter.addEventListener("click", function () {
-        const value = filter.getAttribute("data-social-filter") || "all";
-
-        socialFilters.forEach(function (button) {
-          button.classList.toggle("is-active", button === filter);
-        });
-
-        applySocialFilter(value);
-      });
-    });
-
-    const socialPopupLink = root.querySelector(".rdbx-social-popup-link");
-
-    setupDashboardPopupZoom({
+    setupPopupZoom({
       popup: ".rdbx-social-popup",
       image: ".rdbx-social-popup-image",
       wrap: ".rdbx-social-popup-image-wrap",
@@ -478,64 +374,33 @@
       zoomReset: ".rdbx-social-zoom-reset",
       card: ".rdbx-social-card",
       beforeOpen: function (card) {
-        if (!socialPopupLink || !card) return;
+        const popupLink = root.querySelector(".rdbx-social-popup-link");
+        if (!popupLink) return;
 
-        const type = card.getAttribute("data-social-type");
-        const link = card.getAttribute("data-social-link");
-        const buttonText = type === "instagram" ? "Смотреть профиль" : "Смотреть сообщество";
-
-        socialPopupLink.textContent = buttonText;
-
+        const link = card.getAttribute("data-social-link") || "";
         if (link) {
-          socialPopupLink.setAttribute("href", link);
-          socialPopupLink.classList.remove("is-hidden");
+          popupLink.href = link;
+          popupLink.textContent = "Смотреть сообщество";
+          popupLink.classList.remove("is-hidden");
         } else {
-          socialPopupLink.removeAttribute("href");
-          socialPopupLink.classList.add("is-hidden");
+          popupLink.removeAttribute("href");
+          popupLink.classList.add("is-hidden");
         }
       }
     });
-  }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initDashboard);
-  } else {
-    initDashboard();
-  }
-})();
-</script>
-
-
-<script>
-(function () {
-  function initNormalPortfolioPage() {
-    const root = document.querySelector(".rdbx-scope");
-    if (!root) return;
-
-    const activeTab = root.querySelector('.rdbx-page-nav .rdbx-tab.is-active') || root.querySelector('.rdbx-page-nav .rdbx-tab');
-    if (!activeTab) return;
-
-    const tabName = activeTab.getAttribute('data-tab');
-    root.querySelectorAll('.rdbx-page-panels .rdbx-panel').forEach(function (panel) {
-      panel.classList.toggle('is-active', panel.getAttribute('data-panel') === tabName);
+    root.querySelectorAll('.rdbx-request-button[href="#popup:myformbesay"]').forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        if (window.self === window.top) return;
+        event.preventDefault();
+        window.parent.postMessage({ type: "besay-open-popup", hash: "#popup:myformbesay" }, "*");
+      });
     });
+
+    setTheme(root.getAttribute("data-theme") || "dark");
+    setMobileView(root.getAttribute("data-mobile-view") || "about");
+    setPortfolioTab(getActivePanelName());
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initNormalPortfolioPage);
-  } else {
-    initNormalPortfolioPage();
-  }
-})();
-
-/* GitHub iframe → Tilda popup bridge */
-(function () {
-  const requestButtons = document.querySelectorAll('.rdbx-request-button[href="#popup:myformbesay"]');
-  requestButtons.forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      if (window.self === window.top) return;
-      event.preventDefault();
-      window.parent.postMessage({ type: 'besay-open-popup', hash: '#popup:myformbesay' }, '*');
-    });
-  });
+  onReady(initPortfolioPage);
 })();

@@ -1,5 +1,22 @@
 <div id="besay-portfolio-frame"></div>
 
+<style>
+  #besay-portfolio-frame {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  #besay-portfolio-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    overflow: auto;
+  }
+</style>
+
 <script>
 (function () {
   var portfolioUrl = "https://dobroeee.github.io/besay/portfolio/";
@@ -8,11 +25,9 @@
 
   var iframe = document.createElement("iframe");
   iframe.src = portfolioUrl + "?v=" + new Date().getTime();
-  iframe.style.width = "100%";
-  iframe.style.height = "3000px";
-  iframe.style.border = "0";
-  iframe.style.display = "block";
-  iframe.loading = "lazy";
+  iframe.title = "Портфолио Ахмеровой Рамили";
+  iframe.loading = "eager";
+  iframe.scrolling = "yes";
   holder.appendChild(iframe);
 
   window.addEventListener("message", function (event) {
