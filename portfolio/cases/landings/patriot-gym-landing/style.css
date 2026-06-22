@@ -1069,3 +1069,68 @@ a {
   }
 }
 /* END IMAGE CONTAINERS ADAPT V14 */
+
+/* IMAGE AUTO-FIT FIX V15 */
+.case-page .case-image {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  vertical-align: top !important;
+}
+
+.case-page .case-shot-block,
+.case-page .case-schedule-shots,
+.case-page .case-mobile-grid,
+.case-page .case-design > div:last-child,
+.case-page .case-analytics-shot {
+  height: auto !important;
+  min-height: 0 !important;
+  align-items: start !important;
+  align-content: start !important;
+  overflow: visible !important;
+}
+
+.case-page .case-shot-block .case-image,
+.case-page .case-schedule-shots .case-image,
+.case-page .case-design .case-image,
+.case-page .case-mobile-grid .case-image {
+  flex: 0 0 auto !important;
+  align-self: start !important;
+}
+
+.case-page .case-schedule-shots {
+  grid-auto-rows: max-content !important;
+}
+
+.case-page .case-mobile-grid {
+  grid-auto-rows: max-content !important;
+}
+
+.case-page .case-image--hero {
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+.case-page .case-placeholder--analytics {
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+@media (max-width: 620px) {
+  .case-page .case-shot-block,
+  .case-page .case-schedule-shots,
+  .case-page .case-mobile-grid,
+  .case-page .case-design > div:last-child {
+    gap: 12px !important;
+  }
+}
+/* END IMAGE AUTO-FIT FIX V15 */
