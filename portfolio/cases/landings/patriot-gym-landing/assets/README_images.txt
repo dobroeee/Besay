@@ -1,39 +1,22 @@
 Изображения для кейса Patriot Gym
 
-Материалы теперь разложены по папкам внутри:
-patriot-gym-landing/materials/
+Файлы нужно загрузить в папку:
+portfolio/cases/landings/patriot-gym-landing/materials/
 
-01. materials/01-hero/hero-desktop.webp
-Главный экран лендинга на десктопе.
+Подключенные изображения:
+1. patriot-block-hero.jpg — главный экран лендинга.
+2. patriot-block-full.jpg — полный скрин сайта.
+3. patriot-block-schedule.jpg — скрин расписания на сайте.
+4. patriot-block-schedule-table.jpg — скрин таблицы для заказчика.
+5. Phone 1.jpg — мобильная версия: первый экран.
+6. Phone 2.jpg — мобильная версия: тренер и виды тренировок.
+7. Phone 3.jpg — мобильная версия: акции.
+8. Phone 4.jpg — мобильная версия: расписание.
 
-02. materials/02-full-page/landing-full-view.webp
-Длинный скрин всей страницы или общий мокап лендинга.
+Остался placeholder:
+- блок «Аналитика и формы» — добавить скрин Метрики 16:9, когда будет готов.
 
-03. materials/03-schedule/schedule-site.webp
-Скрин расписания на сайте. Формат 16:9.
-
-04. materials/03-schedule/schedule-table.webp
-Скрин таблицы, через которую заказчик редактирует расписание. Формат 16:9.
-
-05. materials/04-analytics/analytics-metrica.webp
-Скрин Яндекс Метрики 16:9: цели, заявки, источники трафика, конверсия или динамика обращений.
-
-06. materials/05-design/design-details.webp
-Детали визуального стиля: цвета, типографика, UI-блоки.
-
-07. materials/06-mobile/mobile-first-screen.webp
-Мобильный первый экран.
-
-08. materials/06-mobile/mobile-directions.webp
-Мобильный блок направлений.
-
-09. materials/06-mobile/mobile-trainers.webp
-Мобильный блок тренеров.
-
-10. materials/06-mobile/mobile-form.webp
-Мобильная форма заявки.
-
-11. materials/07-og-cover/og-patriot-gym.webp
-Обложка для соцсетей и превью.
-
-Важно: пустые папки сохранены через .gitkeep, чтобы GitHub их не удалил.
+Важно:
+- названия файлов должны совпадать точно;
+- файлы Phone 1.jpg / Phone 2.jpg / Phone 3.jpg / Phone 4.jpg содержат пробелы, в HTML они подключены через URL-кодирование: Phone%201.jpg и т.д.;
+- если переименуешь файлы, нужно обновить src в index.html.
