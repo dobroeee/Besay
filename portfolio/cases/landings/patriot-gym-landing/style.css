@@ -1257,3 +1257,56 @@ a {
   }
 }
 /* END ANALYTICS IMAGE NATURAL HEIGHT FIX V19 */
+
+/* SCHEDULE IMAGE NATURAL HEIGHT FIX V20 */
+.case-page .case-schedule {
+  align-items: start !important;
+  overflow: visible !important;
+}
+
+.case-page .case-schedule-shots {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 18px !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  align-items: start !important;
+  align-content: start !important;
+  grid-auto-rows: max-content !important;
+}
+
+.case-page .case-schedule-shots img,
+.case-page .case-schedule-shots .case-image,
+.case-page .case-schedule-shots .case-image--ratio {
+  position: static !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  flex: 0 0 auto !important;
+  align-self: start !important;
+  margin: 0 !important;
+  vertical-align: top !important;
+  overflow: hidden !important;
+}
+
+.case-page .case-schedule + .case-section,
+.case-page .case-schedule + .case-shot-block {
+  clear: both !important;
+}
+
+@media (max-width: 620px) {
+  .case-page .case-schedule-shots {
+    gap: 12px !important;
+  }
+}
+/* END SCHEDULE IMAGE NATURAL HEIGHT FIX V20 */
