@@ -892,3 +892,121 @@ a {
   }
 }
 /* END HERO UPDATE V12 */
+
+
+/* HERO STRICT FIX V13 */
+.case-page .case-hero {
+  display: grid !important;
+  grid-template-columns: minmax(360px, .92fr) minmax(520px, 1.08fr) !important;
+  gap: 20px !important;
+  align-items: start !important;
+  min-height: 0 !important;
+}
+
+.case-page .case-hero__content,
+.case-page .case-hero__visual {
+  align-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.case-page .case-hero__content {
+  padding: 34px !important;
+  justify-content: flex-start !important;
+}
+
+.case-page .case-back {
+  margin: 0 0 36px 0 !important;
+}
+
+.case-page .case-hero .case-kicker {
+  margin: 0 0 20px 0 !important;
+}
+
+.case-page .case-hero h1 {
+  max-width: 620px !important;
+  font-size: clamp(30px, 3vw, 44px) !important;
+  line-height: 1.5 !important;
+  letter-spacing: .022em !important;
+}
+
+.case-page .case-lead {
+  max-width: 620px !important;
+  margin-top: 24px !important;
+}
+
+.case-page .case-hero__visual {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
+  padding: 20px !important;
+  overflow: hidden !important;
+}
+
+.case-page .case-tags--hero {
+  order: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  margin: 0 !important;
+}
+
+.case-page .case-image--hero {
+  order: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 980px) {
+  .case-page .case-hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .case-page .case-back {
+    margin-bottom: 28px !important;
+  }
+
+  .case-page .case-hero h1 {
+    max-width: none !important;
+    font-size: clamp(28px, 7vw, 40px) !important;
+    line-height: 1.46 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .case-page {
+    padding: 16px !important;
+  }
+
+  .case-page .case-hero__content,
+  .case-page .case-hero__visual {
+    padding: 18px !important;
+  }
+
+  .case-page .case-back {
+    margin-bottom: 24px !important;
+  }
+
+  .case-page .case-hero .case-kicker {
+    margin-bottom: 16px !important;
+  }
+
+  .case-page .case-hero h1 {
+    font-size: clamp(25px, 8vw, 32px) !important;
+    line-height: 1.44 !important;
+    letter-spacing: .018em !important;
+  }
+}
+/* END HERO STRICT FIX V13 */
