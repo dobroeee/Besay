@@ -1,0 +1,676 @@
+{
+  "filters": {
+    "sections": [
+      {
+        "id": "sites",
+        "number": "01",
+        "title": "Сайты",
+        "subtitle": "Лендинги и веб"
+      },
+      {
+        "id": "brandbooks",
+        "number": "02",
+        "title": "Брендбуки",
+        "subtitle": "Айдентика и системы"
+      },
+      {
+        "id": "custom",
+        "number": "03",
+        "title": "Кастом",
+        "subtitle": "Блоки и логика"
+      },
+      {
+        "id": "mailings",
+        "number": "04",
+        "title": "Рассылки",
+        "subtitle": "Email и digital"
+      },
+      {
+        "id": "social",
+        "number": "05",
+        "title": "Социальные сети",
+        "subtitle": "VK"
+      }
+    ],
+    "types": {
+      "sites": [
+        {
+          "id": "all",
+          "label": "Все"
+        },
+        {
+          "id": "multi",
+          "label": "Многостраничный сайт"
+        },
+        {
+          "id": "landing",
+          "label": "Лендинг"
+        },
+        {
+          "id": "dashboard",
+          "label": "Дашборд"
+        }
+      ],
+      "brandbooks": [
+        {
+          "id": "all",
+          "label": "Все"
+        },
+        {
+          "id": "brandbook",
+          "label": "Брендбук"
+        }
+      ],
+      "custom": [
+        {
+          "id": "all",
+          "label": "Все"
+        },
+        {
+          "id": "calculator",
+          "label": "Калькуляторы"
+        },
+        {
+          "id": "game",
+          "label": "Игровые интерфейсы"
+        }
+      ],
+      "mailings": [
+        {
+          "id": "all",
+          "label": "Все"
+        },
+        {
+          "id": "email",
+          "label": "Email"
+        }
+      ],
+      "social": [
+        {
+          "id": "all",
+          "label": "Все"
+        },
+        {
+          "id": "vk",
+          "label": "VK"
+        }
+      ]
+    },
+    "areas": [
+      {
+        "id": "all",
+        "label": "Все"
+      },
+      {
+        "id": "education",
+        "label": "Образование"
+      },
+      {
+        "id": "event",
+        "label": "Событие"
+      },
+      {
+        "id": "sport",
+        "label": "Спорт"
+      },
+      {
+        "id": "it",
+        "label": "IT"
+      },
+      {
+        "id": "igaming",
+        "label": "iGaming"
+      },
+      {
+        "id": "music",
+        "label": "Музыка"
+      },
+      {
+        "id": "beauty",
+        "label": "Косметология"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "patriot-gym",
+      "section": "sites",
+      "title": "Академия единоборств Patriot GYM в Москве",
+      "type": "landing",
+      "area": "sport",
+      "meta": [
+        "Лендинг",
+        "Спорт"
+      ],
+      "image": "https://optim.tildacdn.com/tild3836-6134-4665-a466-633936353231/-/format/webp/photo.jpg.webp",
+      "url": "https://patriotgym.ru",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-2",
+      "section": "sites",
+      "title": "Учебно-методический центр в области косметологии и эстетической медицины",
+      "type": "landing",
+      "area": "beauty",
+      "meta": [
+        "Лендинг",
+        "Косметология"
+      ],
+      "image": "https://optim.tildacdn.com/tild3162-6261-4435-a166-626436353735/-/format/webp/photo.jpg.webp",
+      "url": "https://besay.ru/mesoreal",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "digital",
+      "section": "sites",
+      "title": "Конференция по digital-продуктам в сфере зообизнеса",
+      "type": "landing",
+      "area": "event,it",
+      "meta": [
+        "Лендинг",
+        "Событие",
+        "IT"
+      ],
+      "image": "https://optim.tildacdn.com/tild6432-3135-4566-a561-623563383539/-/format/webp/_.jpg.webp",
+      "url": "https://besay.ru/animal-conference",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-4",
+      "section": "sites",
+      "title": "Всероссийская олимпиада по педагогике для школьников",
+      "type": "multi",
+      "area": "education",
+      "meta": [
+        "Многостраничный сайт",
+        "Образование"
+      ],
+      "image": "https://optim.tildacdn.com/tild3862-3066-4563-a534-643363303266/-/format/webp/photo.jpg.webp",
+      "url": "https://besay.ru/website-dev",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-5",
+      "section": "sites",
+      "title": "Школа граффити при ЧПОУ МГОК",
+      "type": "landing",
+      "area": "education",
+      "meta": [
+        "Лендинг",
+        "Образование"
+      ],
+      "image": "https://optim.tildacdn.com/tild3762-6565-4161-b035-616434363066/-/format/webp/_.jpg.webp",
+      "url": "https://dpo.open-college.ru/graffiti-school",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-6",
+      "section": "sites",
+      "title": "Московский городской открытый колледж: календарь событий",
+      "type": "dashboard",
+      "area": "education,event",
+      "meta": [
+        "Дашборд",
+        "Образование",
+        "Событие"
+      ],
+      "image": "https://optim.tildacdn.com/tild6630-3433-4437-b630-316535316163/-/format/webp/photo.jpg.webp",
+      "url": "https://dod.open-college.ru/events",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-7",
+      "section": "sites",
+      "title": "Художественная академия — школа при МИП",
+      "type": "landing",
+      "area": "education",
+      "meta": [
+        "Лендинг",
+        "Образование"
+      ],
+      "image": "https://optim.tildacdn.com/tild3934-3835-4630-b261-333436346330/-/format/webp/photo.jpg.webp",
+      "url": "https://dpo.open-college.ru/art-academy",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-8",
+      "section": "sites",
+      "title": "Разработка компьютерных игр, дополненной и виртуальной реальности",
+      "type": "landing",
+      "area": "education,it",
+      "meta": [
+        "Лендинг",
+        "Образование",
+        "IT"
+      ],
+      "image": "https://optim.tildacdn.com/tild6562-3531-4265-b436-636261333733/-/format/webp/photo.jpg.webp",
+      "url": "https://dpo.open-college.ru/developmentvr",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-9",
+      "section": "sites",
+      "title": "Курс по авиамоделированию в Москве",
+      "type": "landing",
+      "area": "education",
+      "meta": [
+        "Лендинг",
+        "Образование"
+      ],
+      "image": "https://optim.tildacdn.com/tild3237-3861-4234-b766-646132343730/-/format/webp/photo.jpg.webp",
+      "url": "https://dpo.open-college.ru/aircraft-modeling",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "sites-10",
+      "section": "sites",
+      "title": "Эксплуатация беспилотных авиационных систем",
+      "type": "landing",
+      "area": "education,it",
+      "meta": [
+        "Лендинг",
+        "Образование",
+        "IT"
+      ],
+      "image": "https://optim.tildacdn.com/tild3466-3631-4135-a266-353832313537/-/format/webp/_.jpg.webp",
+      "url": "https://ocp.open-college.ru/ebas",
+      "target": "_blank",
+      "action": "Открыть сайт"
+    },
+    {
+      "id": "brandbooks-1",
+      "section": "brandbooks",
+      "title": "Московский городской открытый колледж",
+      "type": "brandbook",
+      "area": "education",
+      "meta": [
+        "Среднее специальное образование"
+      ],
+      "image": "https://optim.tildacdn.com/tild3765-3263-4532-a634-623931643138/-/format/webp/6_1.jpg.webp",
+      "url": "https://besay.ru/bb-mgok",
+      "target": "_blank",
+      "action": "Открыть брендбук"
+    },
+    {
+      "id": "open-it-it",
+      "section": "brandbooks",
+      "title": "Open.IT — IT-сообщество и образовательная платформа",
+      "type": "brandbook",
+      "area": "it",
+      "meta": [
+        "IT"
+      ],
+      "image": "https://static.tildacdn.com/tild3065-3732-4131-a262-383039363834/1.jpg",
+      "url": "https://besay.ru/bb-openit",
+      "target": "_blank",
+      "action": "Открыть брендбук"
+    },
+    {
+      "id": "brandbooks-3",
+      "section": "brandbooks",
+      "title": "Центр профориентации — пространство выбора профессии и карьерного развития",
+      "type": "brandbook",
+      "area": "education",
+      "meta": [
+        "Дополнительное образование"
+      ],
+      "image": "https://static.tildacdn.com/tild3961-6162-4336-b666-326162623435/d95e41cd-8f1d-435d-9.jpg",
+      "url": "https://besay.ru/bb-berufsberatung",
+      "target": "_blank",
+      "action": "Открыть брендбук"
+    },
+    {
+      "id": "rusffx-bbxschool",
+      "section": "brandbooks",
+      "title": "Школа битбокса RUSFFX BBXSCHOOL — пространство развития навыков, самовыражения и творчества",
+      "type": "brandbook",
+      "area": "music,education",
+      "meta": [
+        "Музыка"
+      ],
+      "image": "https://static.tildacdn.com/tild3063-6361-4030-a339-316366326336/641de086-7229-438b-b.png",
+      "url": "https://besay.ru/bb-bbxschool",
+      "target": "_blank",
+      "action": "Открыть брендбук"
+    },
+    {
+      "id": "brandbooks-5",
+      "section": "brandbooks",
+      "title": "Кейс-чемпионат — пространство развития аналитического мышления, командной работы и практических навыков",
+      "type": "brandbook",
+      "area": "event",
+      "meta": [
+        "Хакатон"
+      ],
+      "image": "https://static.tildacdn.com/tild3638-6233-4638-b566-376434333136/photo_2026-01-26_18-.jpg",
+      "url": "https://besay.ru/bb-case-championship",
+      "target": "_blank",
+      "action": "Открыть брендбук"
+    },
+    {
+      "id": "custom-1",
+      "section": "custom",
+      "title": "Реферальная программа таксопарков",
+      "type": "calculator",
+      "area": "it",
+      "meta": [
+        "Калькулятор"
+      ],
+      "image": "https://optim.tildacdn.com/tild6665-3535-4538-b633-356337393064/-/format/webp/photo.jpg.webp",
+      "url": "https://besay.ru/calculator-taxi",
+      "target": "_blank",
+      "action": "Открыть проект"
+    },
+    {
+      "id": "custom-2",
+      "section": "custom",
+      "title": "Посчитай стоимость ремонта",
+      "type": "calculator",
+      "area": "it",
+      "meta": [
+        "Калькулятор"
+      ],
+      "image": "https://optim.tildacdn.com/tild3731-3237-4138-b733-366630366235/-/format/webp/photo.jpg.webp",
+      "url": "https://besay.ru/calculator-repair",
+      "target": "_blank",
+      "action": "Открыть проект"
+    },
+    {
+      "id": "counter-strike-2",
+      "section": "custom",
+      "title": "Турнирная сетка по Counter Strike 2",
+      "type": "game",
+      "area": "igaming",
+      "meta": [
+        "Турнирная сетка",
+        "Game"
+      ],
+      "image": "https://optim.tildacdn.com/tild3064-6333-4136-b138-393663656366/-/format/webp/photo.jpg.webp",
+      "url": "https://besay.ru/tournament-grid-cs2",
+      "target": "_blank",
+      "action": "Открыть проект"
+    },
+    {
+      "id": "mailings-1",
+      "section": "mailings",
+      "title": "Компания: Эстетик шоп",
+      "type": "email",
+      "area": "beauty",
+      "meta": [
+        "Косметология"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/estetik-shop.jpg?v=2",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/estetik-shop.jpg?v=2",
+      "popupTitle": "Компания: Эстетик шоп",
+      "action": "Смотреть"
+    },
+    {
+      "id": "ardemi",
+      "section": "mailings",
+      "title": "Ardemi",
+      "type": "email",
+      "area": "beauty",
+      "meta": [
+        "Косметология"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/ardemi.jpg",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/ardemi.jpg",
+      "popupTitle": "Ardemi",
+      "action": "Смотреть"
+    },
+    {
+      "id": "1-densol",
+      "section": "mailings",
+      "title": "1С:ТОИР Densol",
+      "type": "email",
+      "area": "education,it",
+      "meta": [
+        "Образование",
+        "CRM"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/desnol.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/desnol.jpg?v=1",
+      "popupTitle": "1С:ТОИР Densol",
+      "action": "Смотреть"
+    },
+    {
+      "id": "mailings-4",
+      "section": "mailings",
+      "title": "АНО Судебно-экспертного центра «Специалист»",
+      "type": "email",
+      "area": "education",
+      "meta": [
+        "Образование"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/spesialist.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/spesialist.jpg?v=1",
+      "popupTitle": "АНО Судебно-экспертного центра «Специалист»",
+      "action": "Смотреть"
+    },
+    {
+      "id": "mailings-5",
+      "section": "mailings",
+      "title": "Мгок: Приглашение",
+      "type": "email",
+      "area": "education",
+      "meta": [
+        "Образование"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/Levina-mgok.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/Levina-mgok.jpg?v=1",
+      "popupTitle": "Мгок: Приглашение",
+      "action": "Смотреть"
+    },
+    {
+      "id": "mailings-6",
+      "section": "mailings",
+      "title": "МГОК: курс – \"Код будущего\"",
+      "type": "email",
+      "area": "education,it",
+      "meta": [
+        "Образование"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/curs-mgok.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/curs-mgok.jpg?v=1",
+      "popupTitle": "МГОК: курс – \"Код будущего\"",
+      "action": "Смотреть"
+    },
+    {
+      "id": "rusffx",
+      "section": "mailings",
+      "title": "Школа битбокса Rusffx",
+      "type": "email",
+      "area": "music,education",
+      "meta": [
+        "Музыка",
+        "Образование"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/bbxschool-email.jpg?v=2",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/email-photos/bbxschool-email.jpg?v=2",
+      "popupTitle": "Школа битбокса Rusffx",
+      "action": "Смотреть"
+    },
+    {
+      "id": "social-1",
+      "section": "social",
+      "title": "Приколы | Смеяка",
+      "type": "vk",
+      "area": "all",
+      "meta": [
+        "8,1M",
+        "ВК"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/smeyaka/ava.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/smeyaka/banner.png?v=1",
+      "popupTitle": "Приколы | Смеяка",
+      "action": "Смотреть",
+      "socialType": "vk",
+      "followers": 8100000,
+      "socialLink": "https://vk.com/smeyaka"
+    },
+    {
+      "id": "social-2",
+      "section": "social",
+      "title": "Грани юмора",
+      "type": "vk",
+      "area": "all",
+      "meta": [
+        "3,3 млн",
+        "ВК"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/grani-umora/ava.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/grani-umora/banner.png?v=1",
+      "popupTitle": "Грани юмора",
+      "action": "Смотреть",
+      "socialType": "vk",
+      "followers": 3300000,
+      "socialLink": "https://vk.com/tophumor"
+    },
+    {
+      "id": "social-3",
+      "section": "social",
+      "title": "Темная материя",
+      "type": "vk",
+      "area": "all",
+      "meta": [
+        "3,2M",
+        "ВК"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/temnaya-materia/ava.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/temnaya-materia/banner.png?v=1",
+      "popupTitle": "Темная материя",
+      "action": "Смотреть",
+      "socialType": "vk",
+      "followers": 3200000,
+      "socialLink": "https://vk.com/da_side"
+    },
+    {
+      "id": "social-4",
+      "section": "social",
+      "title": "МДК",
+      "type": "vk",
+      "area": "all",
+      "meta": [
+        "2,8M",
+        "ВК"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/mdk/ava.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/mdk/banner.png?v=1",
+      "popupTitle": "МДК",
+      "action": "Смотреть",
+      "socialType": "vk",
+      "followers": 2800000,
+      "socialLink": "https://vk.com/mudachyo"
+    },
+    {
+      "id": "social-5",
+      "section": "social",
+      "title": "Одри",
+      "type": "vk",
+      "area": "beauty",
+      "meta": [
+        "61 подписчик",
+        "ВК"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/odri/ava.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/odri/banner.png?v=1",
+      "popupTitle": "Одри",
+      "action": "Смотреть",
+      "socialType": "vk",
+      "followers": 61,
+      "socialLink": "https://vk.com/odri_beauty_space"
+    },
+    {
+      "id": "social-6",
+      "section": "social",
+      "title": "Маркетинг таксопарков",
+      "type": "vk",
+      "area": "it",
+      "meta": [
+        "ВК",
+        "ВК"
+      ],
+      "image": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/taxopark-my/ava.jpg?v=1",
+      "popupImage": "https://raw.githubusercontent.com/dobroeee/Besay/main/social/taxopark-my/banner.png?v=1",
+      "popupTitle": "Маркетинг таксопарков",
+      "action": "Смотреть",
+      "socialType": "vk",
+      "followers": 0,
+      "socialLink": ""
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Супер Figma",
+      "description": "Онлайн-школа дизайна, компьютерной графики и современных технологий.",
+      "url": "https://cloudlessons.ru/v/500/",
+      "tags": [
+        "Figma",
+        "Videosmile"
+      ]
+    },
+    {
+      "title": "Супер After Effects",
+      "description": "Онлайн-школа дизайна, компьютерной графики и современных технологий.",
+      "url": "https://cloudlessons.ru/v/410/",
+      "tags": [
+        "After Effects",
+        "Videosmile"
+      ]
+    },
+    {
+      "title": "Курс по Adobe Photoshop — продвинутый уровень",
+      "description": "Практический курс по работе с графикой, обработке изображений и продвинутым инструментам Photoshop.",
+      "url": "https://stepik.org/course/106836/promo",
+      "tags": [
+        "Photoshop",
+        "Дмитрий Фокеев"
+      ]
+    },
+    {
+      "title": "Веб дизайн в Figma — продвинутый уровень",
+      "description": "Продвинутый курс по веб-дизайну, интерфейсам, структуре макетов и работе в Figma.",
+      "url": "https://stepik.org/course/261291/promo",
+      "tags": [
+        "Figma",
+        "Дмитрий Фокеев"
+      ]
+    },
+    {
+      "title": "Курс по Adobe Illustrator",
+      "description": "Курс по векторной графике, иллюстрациям, работе с формами, цветом и инструментами Illustrator.",
+      "url": "https://stepik.org/course/106825/promo",
+      "tags": [
+        "Illustrator",
+        "Дмитрий Фокеев"
+      ]
+    },
+    {
+      "title": "Курс по Adobe After Effects",
+      "description": "Курс по моушен-дизайну, анимации, композиции и базовой работе с After Effects.",
+      "url": "https://stepik.org/course/177850/promo",
+      "tags": [
+        "After Effects",
+        "Дмитрий Фокеев"
+      ]
+    },
+    {
+      "title": "Курс по созданию сайтов в Tilda",
+      "description": "Курс по сборке сайтов на Tilda, структуре страниц, блокам и подготовке проекта к запуску.",
+      "url": "https://stepik.org/course/183709/promo",
+      "tags": [
+        "Tilda",
+        "Дмитрий Фокеев"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "defaultTheme": "dark",
+  "defaultMobileView": "about",
+  "defaultSection": "sites",
+  "jsonBase": "https://dobroeee.github.io/Besay/portfolio/assets/json/",
+  "showCertificates": true,
+  "sortSocialByFollowers": true,
+  "portfolioCountHome": 6
+}
